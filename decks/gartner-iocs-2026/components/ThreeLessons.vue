@@ -12,7 +12,7 @@ const lessons = [
 <template>
   <At v-for="(l, i) in lessons" :key="l.title" :x="308" :y="ys[i]" :w="379" :h="64"
     class="rounded-[8px] bg-[var(--suse-pine)] px-[12px] pt-[8px]">
-    <div class="text-[16px] font-bold text-white">{{ l.title }}</div>
+    <div class="text-[16px] font-bold text-[var(--suse-fog)]">{{ l.title }}</div>
     <div class="text-[14px] text-mint mt-[3px]">{{ l.detail }}</div>
   </At>
 </template>

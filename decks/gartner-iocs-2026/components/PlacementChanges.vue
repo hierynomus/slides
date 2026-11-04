@@ -6,7 +6,7 @@ defineProps<{ clicks: number }>()
 
 const events = [
   { n: 1, x: 79.5, y: 134.5, f: '#9e9e9e', t: '#efefef' },
-  { n: 2, x: 201.5, y: 158.5, f: 'var(--suse-pine)', t: '#fff', arrow: 'M194 166 L177 187', head: 'M177.9 185.8 L177 187' },
+  { n: 2, x: 201.5, y: 158.5, f: 'var(--suse-pine)', t: 'var(--suse-fog)', arrow: 'M194 166 L177 187', head: 'M177.9 185.8 L177 187' },
   { n: 3, x: 149.5, y: 266.5, f: 'var(--suse-persimmon)', t: 'var(--suse-pine)', arrow: 'M137 258 A16 16 0 1 0 163.8 258.6', head: 'M164.8 260.5 A16 16 0 0 0 163.8 258.6' },
   { n: 4, x: 91.5, y: 271.5, f: 'var(--suse-jungle)', t: '#efefef', arrow: 'M84 279 L52 311', head: 'M53 310 L52 311' },
 ]
@@ -23,7 +23,7 @@ const events = [
     <text x="150" y="114" text-anchor="middle" style="font-size: 12px; font-weight: 700">Standard</text>
     <text x="150" y="144" text-anchor="middle" style="font-size: 12px; font-weight: 700">Regulated</text>
     <text x="150" y="176" text-anchor="middle" style="font-size: 12px; font-weight: 700">Sensitive</text>
-    <text x="150" y="222" text-anchor="middle" fill="#fff" style="font-size: 12px; font-weight: 700">Strategic</text>
+    <text x="150" y="222" text-anchor="middle" fill="var(--suse-fog)" style="font-size: 12px; font-weight: 700">Strategic</text>
     <g v-for="(m, i) in events" :key="m.n" class="transition-opacity duration-500" :class="{ 'opacity-0': clicks <= i }">
       <!-- the head is a separate stub that fades in once the line has been drawn -->
       <path v-if="m.arrow" :d="m.arrow" pathLength="1" fill="none" stroke="var(--suse-pine)" stroke-width="2"

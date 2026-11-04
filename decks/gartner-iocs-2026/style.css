@@ -50,7 +50,7 @@
 .slidev-layout.tone-fog { background: var(--suse-fog); }
 .slidev-layout.tone-dark {
   background: var(--suse-pine);
-  color: #fff;
+  color: var(--suse-fog);
 }
 
 .source {
@@ -76,14 +76,6 @@
   top: 3px;
 }
 
-.pill {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 999px;
-  font-size: 10px;
-  font-weight: 700;
-}
 .badge {
   display: flex;
   align-items: center;

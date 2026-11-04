@@ -1,9 +1,9 @@
 <!-- "Not every AI workload needs to be in the keep": the rings with one numbered marker per level -->
 <script setup lang="ts">
 const markers = [
-  { y: 108.5, f: 'var(--suse-pine)', t: '#fff' },
-  { y: 138.5, f: 'var(--suse-pine)', t: '#fff' },
-  { y: 170.5, f: 'var(--suse-pine)', t: '#fff' },
+  { y: 108.5, f: 'var(--suse-pine)', t: 'var(--suse-fog)' },
+  { y: 138.5, f: 'var(--suse-pine)', t: 'var(--suse-fog)' },
+  { y: 170.5, f: 'var(--suse-pine)', t: 'var(--suse-fog)' },
   { y: 218.5, f: 'var(--suse-jungle)', t: 'var(--suse-pine)' },
 ]
 </script>

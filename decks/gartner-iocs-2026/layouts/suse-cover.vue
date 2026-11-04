@@ -1,7 +1,7 @@
 <template>
   <div class="slidev-layout suse-cover tone-dark">
     <SuseLogo :size="31" class="cover-logo" />
-    <img src="/images/geeko.png" class="cover-geeko" alt="" />
+    <Geeko class="cover-geeko" />
     <div class="cover-body">
       <slot />
     </div>
@@ -19,10 +19,10 @@
 }
 .cover-geeko {
   position: absolute;
-  left: 451px;
-  top: 86px;
-  width: 627px;
-  max-width: none;
+  left: 293px;
+  top: -224px;
+  width: 960px;
+  height: 960px;
   transform: scaleX(-1);
 }
 .cover-body {

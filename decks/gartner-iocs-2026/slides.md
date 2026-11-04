@@ -54,20 +54,20 @@ clicks: 1
 
 # Sovereign AI means…
 
-<At :x="25" :y="133" :w="268" :h="139" class="rounded-[16px] bg-[var(--suse-card)] text-white">
-  <div class="absolute left-[23px] top-[10px] text-[10px] font-medium text-mint">WHAT MANY ASSUME</div>
+<At :x="25" :y="133" :w="268" :h="139" class="rounded-[16px] bg-[var(--suse-card)] text-[var(--suse-fog)]">
+  <div class="absolute left-[23px] top-[10px] text-[10px] font-bold uppercase tracking-[0.12em] text-mint">What many assume</div>
   <div class="absolute left-[23px] top-[47px] w-[236px] text-[18px] leading-[22px]">My AI runs in my region.</div>
-  <div class="pill absolute left-[136px] top-[108px] w-[116px] h-[21px] bg-[var(--suse-jungle)] text-[var(--suse-pine)]">Where it runs</div>
+  <Pill class="absolute left-[136px] top-[108px]">Where it runs</Pill>
 </At>
 
 <!-- Click: the arrow draws itself, then the head and the second box fade in -->
-<DrawArrow class="absolute left-[318px] top-[195px]" :active="$clicks > 0" />
+<ArrowRight class="absolute left-[300px] top-[191px]" :w="120" :h="22" :line-end="104" :head-base="100" :head-tip="118" :head-half="10" :stroke="4" :active="$clicks > 0" />
 
-<At :x="427" :y="132" :w="268" :h="139" class="rounded-[16px] bg-[var(--suse-jungle)] transition-opacity duration-500"
+<At :x="427" :y="133" :w="268" :h="139" class="rounded-[16px] bg-[var(--suse-jungle)] transition-opacity duration-500"
   :class="{ 'opacity-0': $clicks < 1 }" :style="{ transitionDelay: $clicks > 0 ? '0.8s' : '0s' }">
-  <div class="absolute left-[23px] top-[10px] text-[10px] font-medium">WHAT IT TAKES</div>
+  <div class="absolute left-[23px] top-[10px] text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--suse-pine)]">What it takes</div>
   <div class="absolute left-[23px] top-[44px] w-[236px] text-[18px] leading-[22px]">I control access to my AI</div>
-  <div class="pill absolute left-[136px] top-[109px] w-[116px] h-[21px] bg-[var(--suse-pine)] text-[#efefef]">Who holds the keys</div>
+  <Pill tone="pine" class="absolute left-[136px] top-[109px]">Who holds the keys</Pill>
 </At>
 
 ---
@@ -125,7 +125,7 @@ A Remote-access API You Cannot Close
   US authorities can compel disclosure of data a company controls, including data held in an EU region.
 </At>
 
-<At :x="25" :y="180" :w="384" :h="156" class="rounded-[18px] bg-[var(--suse-pine)] text-white">
+<At :x="25" :y="180" :w="384" :h="156" class="rounded-[18px] bg-[var(--suse-pine)] text-[var(--suse-fog)]">
   <p class="mx-[14px] mt-[16px] text-[16px] leading-[19.5px]">
     Asked under oath whether data held on its <b class="text-persimmon">EU infrastructure</b> could be guaranteed never to reach <b class="text-persimmon">US authorities</b> without French government consent, A US Hyperscaler France's director of public and legal affairs said “<b class="text-mint">No, I cannot guarantee that</b>”
   </p>
@@ -150,31 +150,40 @@ A Remote-access API You Cannot Close
 
 ---
 tone: fog
+source: SUSE, Hybrid Cloud Survey 2026 (611 IT leaders in the US, UK, France, Germany and Japan), September 2026
 ---
 
 # In AI, owning your data is not controlling it
 
-<At :x="26" :y="83" :w="254" :h="96" class="bg-[var(--suse-pine)] text-[#f7f8f8] px-[19px] pt-[14px]">
-  <div class="text-[18px] font-bold leading-[24px]">Your data</div>
-  <div class="text-[14px] font-medium leading-[20px] mt-[2px]">Prompts, documents, customer records</div>
+<At :x="25" :y="83" :w="247" :h="258" class="rounded-[8px] bg-[var(--suse-card)] text-[var(--suse-fog)] px-[16px]">
+  <div class="mt-[16px] text-[10px] font-bold uppercase tracking-[0.12em] text-mint">Start at home</div>
+  <div class="text-[64px] font-medium leading-[72px] mt-[6px] text-jungle">91%</div>
+  <p class="text-[14px] font-medium leading-[17px] mt-[8px]">of IT leaders say employees bypass security and compliance controls to deploy AI workloads faster.</p>
+  <p class="text-[12px] leading-[16px] mt-[10px] text-[#d5e0dd]">85% worry about data loss and no visibility into running models.</p>
 </At>
 
-<ArrowRight class="absolute left-[300px] top-[121px]" :w="120" :h="22" :line-end="104" :head-base="100" :head-tip="118" :head-half="10" :stroke="4" />
-
-<At :x="440" :y="83" :w="254" :h="96" class="bg-[var(--suse-forest)] text-[#f7f8f8] px-[19px] pt-[14px]">
-  <div class="text-[18px] font-bold leading-[24px]">An AI Service</div>
-  <div class="text-[14px] font-medium leading-[20px] mt-[2px]">Run by someone else, on their terms and jurisdiction</div>
+<At :x="297" :y="83" :w="175" :h="52" class="rounded-[8px] bg-[var(--suse-pine)] text-[#f7f8f8] px-[12px] pt-[8px]">
+  <div class="text-[16px] font-bold leading-[20px]">Your data</div>
+  <div class="text-[11px] leading-[16px]">prompts, documents, records</div>
 </At>
 
-<At :x="31" :y="205" class="text-[18px] font-bold">3 Questions for your AI provider</At>
+<ArrowRight class="absolute left-[472px] top-[102px]" :w="36" :h="14" :line-end="30" :head-base="26" :head-tip="34" :head-half="6" :stroke="2.5" />
+
+<At :x="521" :y="83" :w="174" :h="52" class="rounded-[8px] bg-[var(--suse-forest)] text-[#f7f8f8] px-[12px] pt-[8px]">
+  <div class="text-[16px] font-bold leading-[20px]">An AI service</div>
+  <div class="text-[11px] leading-[16px]">run by someone else</div>
+</At>
+
+<At :x="297" :y="147" class="text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--suse-forest)]">Three questions to ask any AI provider</At>
 
 <At v-for="(q, i) in [
   { t: 'Who holds the keys?', d: 'Customer-only control of the encryption keys' },
-  { t: 'Can you audit the AI?', d: 'Who accessed your data and what the AI did with it' },
-  { t: 'Whose law can compel it?', d: 'Jurisdiction follows the provider not the region' },
-]" :key="q.t" :x="[25, 245, 485][i]" :y="245" :w="[210, 230, 210][i]" :h="85"
-  class="bg-white border border-[#ccc] rounded-[4px] px-[9px] pt-[12px] text-[16px] leading-[19.5px] text-black">
-  <b>{{ q.t }}</b><br>{{ q.d }}
+  { t: 'Whose law can compel it?', d: 'Jurisdiction follows the provider, not the region' },
+  { t: 'Can you audit the AI?', d: 'Who accessed your data, and what the AI did with it' },
+]" :key="q.t" :x="297" :y="167 + i * 59" :w="398" :h="52"
+  class="bg-[#f8f9f9] border border-[#d6d9d8] rounded-[8px] px-[12px] pt-[7px] text-black">
+  <div class="text-[16px] font-medium leading-[20px] text-[var(--suse-pine)]">{{ q.t }}</div>
+  <div class="text-[12px] leading-[16px] text-[#353c3b]">{{ q.d }}</div>
 </At>
 
 ---
@@ -183,30 +192,20 @@ tone: fog
 
 <At :x="30" :y="66" class="text-[12px]" style="font-family: Arial, sans-serif">Lock-in is built, not bought: it grows with everything you put around the model.</At>
 
-<LockInHex />
+<!-- Clicks: the dependencies appear in pairs, each with its arc label -->
+<LockInHex :clicks="$clicks" />
 
 ---
 tone: dark
+clicks: 1
 ---
 
 # Sovereignty becomes something you can score
 
 The EU Cloud Sovereignty Framework
 
-<SovGrid />
-
-<At :x="38" :y="293" class="text-[18px] text-mint">Each objective is scored from SEAL-0 to SEAL-4</At>
-
----
-tone: dark
----
-
-# Sovereignty becomes something you can score
-
-The EU Cloud Sovereignty Framework
-
-<SovGrid :focus="[4, 6]" />
-
+<!-- Click: SOV-1 pops out and glows, and its "Ownership" pill fades in -->
+<SovGrid :focus="$clicks > 0 ? [1, 4, 5, 6] : []" :labels="{1: 'Ownership', 4: 'Control', 5: 'Control', 6: 'Control'}" />
 <At :x="38" :y="293" class="text-[18px] text-mint">Each objective is scored from SEAL-0 to SEAL-4</At>
 
 ---
@@ -225,9 +224,9 @@ clicks: 4
   class="rounded-[8px] bg-[var(--suse-pine)] transition-opacity duration-500"
   :class="{ 'opacity-0': $clicks <= i }">
   <div class="text-center text-[12px] font-bold text-mint mt-[5px]">{{ e.when }}</div>
-  <div class="mx-[6px] mt-[14px] text-[14px] font-bold leading-[16px] text-white h-[34px]">{{ e.title }}</div>
+  <div class="mx-[6px] mt-[14px] text-[14px] font-bold leading-[16px] text-[var(--suse-fog)] h-[34px]">{{ e.title }}</div>
   <div class="mx-[6px] mt-[14px] text-[12px] leading-[14.5px] text-[#efefef]">{{ e.body }}</div>
-  <div class="pill absolute left-[4px] bottom-[5px] w-[116px] h-[21px] bg-[var(--suse-jungle)] text-[var(--suse-pine)]">{{ e.sov }}</div>
+  <Pill class="absolute left-[4px] bottom-[5px]">{{ e.sov }}</Pill>
 </At>
 
 <At :x="447" :y="83" :w="363" :h="242">
@@ -279,17 +278,12 @@ From blind trust to visibility
 
 # Bringing AI home: the master key comes in steps
 
-<At v-for="(t, i) in [
+<Tower v-for="(t, i) in [
   { title: ['1 · Model as a service'], items: [['Runs on their infrastructure', 'lock'], ['Provider controls access', 'lock'], ['You see nothing inside', 'lock']], bg: 'var(--suse-fog)', fg: 'var(--suse-pine)', y: 228 },
   { title: ['2 · Closed model on', 'your infrastructure'], items: [['Runs on yours', 'key'], ['Vendor controls access', 'lock'], ['You see nothing inside', 'lock']], bg: 'var(--suse-mist)', fg: 'var(--suse-pine)', y: 186 },
   { title: ['3 · Open weights'], items: [['Runs where you choose', 'key'], ['You control access', 'key'], ['You see the model, not its training', 'lockkey']], bg: 'var(--suse-jungle)', fg: 'var(--suse-pine)', y: 140 },
-  { title: ['4 · Fully open'], note: 'rare today', items: [['Runs where you choose', 'key'], ['You control access', 'key'], ['You see everything', 'key']], bg: 'var(--suse-pine)', fg: '#fff', y: 99 },
-]" :key="i" :x="25 + i * 166" :y="t.y" :w="148" :h="354 - t.y"
-  :style="{ background: t.bg, color: t.fg }">
-  <!-- Crenellations: five evenly spaced merlons, flush with both edges of the tower -->
-  <div class="absolute top-[-17px] left-0 right-0 h-[18px] flex justify-between">
-    <div v-for="m in 5" :key="m" class="w-[21px] h-full" :style="{ background: t.bg }" />
-  </div>
+  { title: ['4 · Fully open'], note: 'rare today', items: [['Runs where you choose', 'key'], ['You control access', 'key'], ['You see everything', 'key']], bg: 'var(--suse-pine)', fg: 'var(--suse-fog)', y: 99 },
+]" :key="i" :x="25 + i * 166" :y="t.y" :w="148" :h="354 - t.y" :bg="t.bg" :fg="t.fg">
   <div class="mx-[6px] mt-[10px] text-[12px] font-bold leading-[14px]">
     <div v-for="line in t.title" :key="line">{{ line }}</div>
     <div v-if="t.note" class="italic text-mint">{{ t.note }}</div>
@@ -299,7 +293,7 @@ From blind trust to visibility
       <Ico :name="icon" class="mt-[2px] shrink-0" /><span>{{ text }}</span>
     </li>
   </ul>
-</At>
+</Tower>
 
 ---
 
@@ -310,8 +304,8 @@ From blind trust to visibility
 <At v-for="(l, i) in [
   { t: 'Standard AI', d: 'Public cloud and global LLM platforms, for non-sensitive work', y: 92, bg: 'var(--suse-fog)', fg: 'var(--suse-pine)', dashed: true },
   { t: 'Regulated AI', d: 'Sovereign cloud with customer managed keys', y: 155, bg: 'var(--suse-mist)', fg: 'var(--suse-pine)', dashed: true },
-  { t: 'Sovereignty-sensitive AI', d: 'Regional providers and local open-weight models', y: 209, bg: 'var(--suse-jungle)', fg: '#fff' },
-  { t: 'Strategic sovereign AI', d: 'Air-gapped or private on-premises infrastructure for core IP', y: 279, bg: 'var(--suse-pine)', fg: '#fff' },
+  { t: 'Sovereignty-sensitive AI', d: 'Regional providers and local open-weight models', y: 209, bg: 'var(--suse-jungle)', fg: 'var(--suse-fog)' },
+  { t: 'Strategic sovereign AI', d: 'Air-gapped or private on-premises infrastructure for core IP', y: 279, bg: 'var(--suse-pine)', fg: 'var(--suse-fog)' },
 ]" :key="l.t" :x="324" :y="l.y" :w="340" class="flex gap-[18px]">
   <span class="badge w-[24px] h-[24px] shrink-0 mt-[5px]"
     :style="{ background: l.bg, color: l.fg, border: l.dashed ? '1px dashed var(--suse-pine)' : 'none' }">{{ i + 1 }}</span>
@@ -331,7 +325,7 @@ clicks: 4
 
 <At v-for="(l, i) in [
   { t: 'A provider revokes model access', d: 'No control, you need a new model for your workload', y: 92, bg: '#9e9e9e', fg: '#efefef' },
-  { t: 'The regulations change', d: 'Model needs to be brought under control', y: 166, bg: 'var(--suse-pine)', fg: '#fff' },
+  { t: 'The regulations change', d: 'Model needs to be brought under control', y: 166, bg: 'var(--suse-pine)', fg: 'var(--suse-fog)' },
   { t: 'A new version is released', d: 'Workload needs to be updated for the new model', y: 236, bg: 'var(--suse-persimmon)', fg: 'var(--suse-pine)' },
   { t: 'A new frontier model arrives', d: 'Move workload out to utilize, if the risk allows', y: 306, bg: 'var(--suse-jungle)', fg: '#efefef' },
 ]" :key="l.t" :x="311" :y="l.y" :w="390" class="flex gap-[15px] transition-opacity duration-500"
@@ -345,9 +339,44 @@ clicks: 4
 
 ---
 tone: fog
+clicks: 2
 ---
 
 # What it costs and what it buys
+
+<!-- Click 1: the trade is made (arrow + what you keep); click 2: the punchline -->
+<At v-for="(c, i) in [
+  { label: 'What you give up', dark: false, mark: '−', items: [
+    ['The single-provider default', 'One vendor for everything is easy.'],
+    ['Some speed on day one', 'Your own gateway and keys take setup.'],
+    ['The comfort of “they handle it”', 'Someone else carries the risk, and the decisions.'],
+  ] },
+  { label: 'What you keep', dark: true, mark: '✓', items: [
+    ['A real exit', 'You can move a workload in a number of days you chose.'],
+    ['Negotiating strength', 'Options you can actually use.'],
+    ['Control of your data and your roadmap', 'Decisions about your AI stay with you.'],
+  ] },
+]" :key="c.label" :x="[31, 349][i]" :y="92" :w="[292, 340][i]" :h="190"
+  class="rounded-[8px] px-[16px] transition-opacity duration-700"
+  :class="[c.dark ? 'bg-[var(--suse-pine)] text-[var(--suse-fog)]' : 'bg-[#f7f9f8] border border-[#ccc] text-[#555]', c.dark && $clicks < 1 ? 'opacity-0' : '']">
+  <div class="mt-[15px] text-[10px] font-bold uppercase tracking-[0.12em]" :class="c.dark ? 'text-mint' : 'text-[#777]'">{{ c.label }}</div>
+  <div v-for="[t, d] in c.items" :key="t" class="mt-[10px] first:mt-[12px] flex gap-[9px]">
+    <CheckDot v-if="c.dark" :size="16" class="mt-[2px]" />
+    <span v-else class="shrink-0 mt-[2px] w-[16px] h-[16px] rounded-full text-center text-[11px] leading-[16px] font-bold bg-[#ddd] text-[#777]">{{ c.mark }}</span>
+    <div>
+      <div :class="c.dark ? 'text-[16px] leading-[20px] font-medium whitespace-nowrap' : 'text-[15px] leading-[20px]'">{{ t }}</div>
+      <div class="mt-[4px] text-[11px] leading-[12px] whitespace-nowrap font-light" :class="c.dark ? 'text-[#efefef]' : 'text-[#666]'">{{ d }}</div>
+    </div>
+  </div>
+</At>
+
+<At :x="318" :y="164" :w="34" :h="34" class="rounded-full bg-[var(--suse-jungle)] text-[var(--suse-pine)] text-center text-[20px] leading-[34px] font-bold shadow transition-opacity duration-700"
+  :class="{ 'opacity-0': $clicks < 1 }">→</At>
+
+<At :x="31" :y="304" :w="658" class="text-center text-[22px] font-bold text-[var(--suse-pine)] transition-opacity duration-700"
+  :class="{ 'opacity-0': $clicks < 2 }">
+  A little friction now. <span class="text-[var(--suse-teal)]">A real exit later.</span>
+</At>
 
 ---
 tone: dark
@@ -361,23 +390,51 @@ tone: dark
   { k: 'Keep control', t: 'Bring one model home', d: 'Place each workload where its risk belongs. Run one open-weight model on an open platform you control.' },
 ]" :key="c.k" v-click :x="26 + i * 226.5" :y="92" :w="215" :h="229"
   class="rounded-[10px] bg-[var(--suse-card)] px-[15px]">
-  <div class="flex items-baseline gap-[9px] text-mint mt-[10px]">
-    <span class="text-[24px] font-bold">{{ i + 1 }}</span>
-    <span class="text-[12px] font-bold uppercase">{{ c.k }}</span>
-  </div>
-  <div class="text-[16px] font-bold mt-[18px]">{{ c.t }}</div>
-  <p class="text-[14px] leading-[16.75px] text-[#efefef] mt-[17px]" style="font-family: Arial, sans-serif">{{ c.d }}</p>
+  <div class="mt-[14px] text-[40px] font-bold leading-[40px] text-jungle">{{ i + 1 }}</div>
+  <div class="mt-[4px] text-[10px] font-bold uppercase tracking-[0.12em] text-mint">{{ c.k }}</div>
+  <div class="mt-[14px] h-px bg-white/15"></div>
+  <div class="mt-[14px] text-[16px] font-bold leading-[21px] text-[var(--suse-fog)] whitespace-nowrap">{{ c.t }}</div>
+  <p class="mt-[12px] text-[12.5px] font-light leading-[18px] text-[#a9bdb8]">{{ c.d }}</p>
 </At>
 
 ---
 tone: dark
 ---
 
-<At :x="31" :y="174" class="text-[40px] font-medium leading-[48px]">
+# A year from now
+
+<At :x="31" :y="72" class="text-[36px] font-medium leading-[44px] text-mint">You know…</At>
+
+<At v-for="(t, i) in [
+  'where your keys are, and who else can turn them.',
+  'how many days it takes to move an AI workload.',
+  'that switching AI providers is a decision, not a rebuild.',
+]" :key="t" :x="31" :y="139 + i * 42" :w="658" class="flex items-center gap-[14px] transition-opacity duration-700">
+  <CheckDot />
+  <span class="text-[17px] leading-[22px]">{{ t }}</span>
+</At>
+
+<At :x="31" :y="262" :w="658" class="text-[12px] text-[#9fb5af] transition-opacity duration-700">
+  The alternative: find out later which decisions were made for you.
+</At>
+
+---
+tone: dark
+---
+
+<At :x="31" :y="96" class="text-[40px] font-medium leading-[48px]">
   Your AI.<br>Your Kingdom.<br><span class="text-jungle">Your Keys.</span>
 </At>
 
-<At :x="341" :y="47" :w="379"><img src="/images/castle.png" /></At>
+<At :x="31" :y="262" :w="92" :h="92" class="rounded-[8px] overflow-hidden bg-white">
+  <img src="/images/qr-linkedin.png" class="w-full h-full" />
+</At>
+<At :x="139" :y="270" :w="300">
+  <Pill :w="120" :h="36" style="font-size: 16px;">Booth #117</Pill>
+  <div class="text-[15px] leading-[22px] mt-[10px] whitespace-nowrap">Come talk to us about your keys.</div>
+</At>
+
+<At :x="341" :y="0" :w="379"><img src="/images/castle.png" /></At>
 <At :x="458" :y="104" :w="354"><img src="/images/king-keys.png" /></At>
 
 ---
@@ -419,7 +476,7 @@ The Region logo is not a firewall.
   US authorities can compel disclosure of data a company controls, including data held in an EU region.
 </At>
 
-<At :x="25" :y="192" :w="360" :h="144" class="rounded-[18px] bg-[var(--suse-pine)] text-white px-[13px] pt-[13px]">
+<At :x="25" :y="192" :w="360" :h="144" class="rounded-[18px] bg-[var(--suse-pine)] text-[var(--suse-fog)] px-[13px] pt-[13px]">
   <div class="text-[16px] font-bold leading-[19.5px]">No, I cannot guarantee data sovereignty against US authorities… Even for data in France</div>
   <div class="text-[14px] italic leading-[17px] mt-[19px]">– A US Hyperscaler French subsidiary, under oath, French Senate, June 2025 (<b>paraphrased</b>)</div>
 </At>
@@ -444,14 +501,14 @@ tone: fog
 
 # In AI, owning your data is not controlling it
 
-<At :x="25" :y="64" :w="149" :h="83" class="bg-[var(--suse-pine)] text-[#f7f8f8] px-[18px] pt-[12px]">
+<At :x="25" :y="64" :w="149" :h="83" class="rounded-[8px] bg-[var(--suse-pine)] text-[#f7f8f8] px-[18px] pt-[12px]">
   <div class="text-[16px] font-bold">Your data</div>
   <div class="text-[12px] font-medium leading-[17px] mt-[3px]">Prompts, documents, customer records</div>
 </At>
 
 <ArrowRight class="absolute left-[182px] top-[95px]" :w="66" :h="20" :line-end="52" :head-base="50" :head-tip="64" :head-half="8" :stroke="3" />
 
-<At :x="254" :y="64" :w="149" :h="83" class="bg-[var(--suse-forest)] text-[#f7f8f8] px-[18px] pt-[12px]">
+<At :x="254" :y="64" :w="149" :h="83" class="rounded-[8px] bg-[var(--suse-forest)] text-[#f7f8f8] px-[18px] pt-[12px]">
   <div class="text-[16px] font-bold">An AI Service</div>
   <div class="text-[12px] font-medium leading-[17px] mt-[3px]">Run by someone else</div>
 </At>
@@ -463,11 +520,11 @@ tone: fog
   { t: 'Is it kept or learned from?', d: 'Depends on the contract and service tier' },
   { t: 'Whose law can compel it?', d: 'Jurisdiction follows the provider not the region' },
 ]" :key="q.t" :x="25" :y="201 + i * 52.5" :w="378" :h="45"
-  class="bg-white border border-[#ccc] rounded-[3px] px-[8px] pt-[5px] text-[14px] leading-[16.5px] text-black">
+  class="bg-white border border-[#ccc] rounded-[8px] px-[8px] pt-[5px] text-[14px] leading-[16.5px] text-black">
   <b>{{ q.t }}</b><br>{{ q.d }}
 </At>
 
-<At :x="444" :y="147" :w="252" :h="206" class="bg-[#f7f8f8] border border-[#ccc] px-[12px]">
+<At :x="444" :y="147" :w="252" :h="206" class="rounded-[8px] bg-[#f7f8f8] border border-[#ccc] px-[12px]">
   <div class="text-[60px] leading-[72px] mt-[2px] text-[var(--suse-stat)]">35%</div>
   <p class="text-[16px] leading-[27px] text-[#353c3b] mt-[2px]">of countries will be locked into region-specific AI platforms using proprietary contextual data by 2027</p>
 </At>
@@ -518,7 +575,7 @@ tone: fog
   { k: 'SOV-4 · Operational', d: 'Ease of migrating without vendor lock-in' },
   { k: 'SOV-6 · Technology', d: 'No lock-in to foreign proprietary systems' },
 ]" :key="c.k" :x="34" :y="123 + i * 84" :w="192" :h="75"
-  class="rounded-[4px] bg-[var(--suse-pine)] text-white px-[14px] pt-[12px]">
+  class="rounded-[4px] bg-[var(--suse-pine)] text-[var(--suse-fog)] px-[14px] pt-[12px]">
   <div class="text-[12px] font-bold uppercase text-mint">{{ c.k }}</div>
   <div class="text-[14px] leading-[17px] mt-[3px]">{{ c.d }}</div>
 </At>
@@ -526,7 +583,7 @@ tone: fog
 <ArrowRight class="absolute left-[236px] top-[192px]" :w="50" :h="16" :line-end="42" :head-base="36" :head-tip="46" :head-half="6" :stroke="2.5" open />
 
 <At :x="292" :y="140" :w="226" :h="122" class="rounded-[4px] bg-[var(--suse-pine)] px-[14px] pt-[9px]">
-  <div class="text-[16px] font-bold leading-[20px] text-white">The Virtualization<br>Shake-up</div>
+  <div class="text-[16px] font-bold leading-[20px] text-[var(--suse-fog)]">The Virtualization<br>Shake-up</div>
   <div class="text-[14px] leading-[17px] mt-[4px] text-mint" style="font-family: Arial, sans-serif">A recent, real-world test of depending on one infrastructure vendor.</div>
 </At>
 
