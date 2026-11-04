@@ -165,6 +165,7 @@ A Remote-access API You Cannot Close
 
 ---
 tone: fog
+clicks: 3
 source: SUSE, Hybrid Cloud Survey 2026 (611 IT leaders in the US, UK, France, Germany and Japan), September 2026
 ---
 
@@ -172,9 +173,10 @@ source: SUSE, Hybrid Cloud Survey 2026 (611 IT leaders in the US, UK, France, Ge
 
 <At :x="25" :y="83" :w="247" :h="258" class="rounded-[8px] bg-[var(--suse-card)] text-[var(--suse-fog)] px-[16px]">
   <div class="mt-[16px] text-[10px] font-bold uppercase tracking-[0.12em] text-mint">Start at home</div>
-  <div class="text-[64px] font-medium leading-[72px] mt-[6px] text-jungle">91%</div>
-  <p class="text-[14px] font-medium leading-[17px] mt-[8px]">of IT leaders say employees bypass security and compliance controls to deploy AI workloads faster.</p>
-  <p class="text-[12px] leading-[16px] mt-[10px] text-[#d5e0dd]">85% worry about data loss and no visibility into running models.</p>
+  <div class="text-[64px] font-medium leading-[64px] mt-[4px] text-jungle">91%</div>
+  <p class="text-[14px] font-medium leading-[17px] mt-[6px]">of IT leaders say employees bypass security and compliance controls to deploy AI workloads faster.</p>
+  <p class="text-[12px] leading-[16px] mt-[10px] w-[132px] text-[#d5e0dd]">85% worry about data loss and no visibility into running models.</p>
+  <img src="/images/qr-suse-survey.svg" class="absolute right-[12px] bottom-[12px] w-[78px] h-[78px] rounded-[4px]" />
 </At>
 
 <At :x="297" :y="83" :w="175" :h="52" class="rounded-[8px] bg-[var(--suse-pine)] text-[#f7f8f8] px-[12px] pt-[8px]">
@@ -182,23 +184,23 @@ source: SUSE, Hybrid Cloud Survey 2026 (611 IT leaders in the US, UK, France, Ge
   <div class="text-[11px] leading-[16px]">prompts, documents, records</div>
 </At>
 
-<ArrowRight class="absolute left-[472px] top-[102px]" :w="36" :h="14" :line-end="30" :head-base="26" :head-tip="34" :head-half="6" :stroke="2.5" />
+<ArrowRight class="absolute left-[479.5px] top-[102px]" :w="36" :h="14" :line-end="30" :head-base="26" :head-tip="34" :head-half="6" :stroke="2.5" />
 
 <At :x="521" :y="83" :w="174" :h="52" class="rounded-[8px] bg-[var(--suse-forest)] text-[#f7f8f8] px-[12px] pt-[8px]">
   <div class="text-[16px] font-bold leading-[20px]">An AI service</div>
   <div class="text-[11px] leading-[16px]">run by someone else</div>
 </At>
 
-<At :x="297" :y="147" class="text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--suse-forest)]">Three questions to ask any AI provider</At>
+<At :x="297" :y="147" class="text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--suse-forest)] transition-opacity duration-500"
+  :class="{ 'opacity-0': $clicks < 1 }">Three questions to ask any AI provider</At>
 
-<At v-for="(q, i) in [
-  { t: 'Who holds the keys?', d: 'Customer-only control of the encryption keys' },
-  { t: 'Whose law can compel it?', d: 'Jurisdiction follows the provider, not the region' },
-  { t: 'Can you audit the AI?', d: 'Who accessed your data, and what the AI did with it' },
-]" :key="q.t" :x="297" :y="167 + i * 59" :w="398" :h="52"
-  class="bg-[#f8f9f9] border border-[#d6d9d8] rounded-[8px] px-[12px] pt-[7px] text-black">
-  <div class="text-[16px] font-medium leading-[20px] text-[var(--suse-pine)]">{{ q.t }}</div>
-  <div class="text-[12px] leading-[16px] text-[#353c3b]">{{ q.d }}</div>
+<!-- Clicks: the heading comes in with the first question, then one question per click -->
+<At v-for="(q, i) in ['Who holds the keys?', 'Whose law can compel it?', 'Can you audit the AI?']" :key="q"
+  :x="297" :y="167 + i * 62" :w="398" :h="50"
+  class="flex items-center gap-[14px] bg-[#f8f9f9] border border-[#d6d9d8] rounded-[8px] px-[14px] text-[var(--suse-pine)] transition-opacity duration-500"
+  :class="{ 'opacity-0': $clicks <= i }">
+  <span class="badge w-[26px] h-[26px] shrink-0 bg-[var(--suse-jungle)] text-[var(--suse-pine)]">{{ i + 1 }}</span>
+  <span class="text-[20px] font-medium leading-[24px]">{{ q }}</span>
 </At>
 
 ---
