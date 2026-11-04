@@ -42,10 +42,18 @@ Sovereign AI isn't about distrusting cloud or AI vendors. It's about knowing whe
   <div class="text-[36px] font-bold leading-[46px]">Jeroen van Erp</div>
   <div class="text-[14px] leading-[18px] mt-[4px]"><b class="text-jungle">SUSE</b> <b>|</b> <span class="text-jungle">Principal Technology Advocate</span></div>
   <div class="text-[14px] leading-[18px] italic text-[#9e9e9e]">“Connecting platform engineering to business outcomes”</div>
-  <ul class="mt-[22px] text-[14px] leading-[18px] list-disc! pl-[18px]!">
-    <li>25 years across Engineering, Operations and Product</li>
-    <li>👦🏼👧🏼👦🏼👦🏼🐑🐑🐑🐑 → complexity doesn’t stop after work</li>
-  </ul>
+</At>
+
+<At :x="548" :y="128" :w="147" :h="104" class="rounded-[12px] bg-[var(--suse-pine)] text-[var(--suse-fog)] px-[14px]">
+  <div class="mt-[10px] text-[10px] font-bold uppercase tracking-[0.12em] text-mint">Experience</div>
+  <div class="text-[40px] font-bold leading-[44px] text-jungle">25</div>
+  <div class="text-[11px] leading-[14px]">years across Engineering, Operations and Product</div>
+</At>
+
+<At :x="548" :y="244" :w="147" :h="122" class="rounded-[12px] bg-[var(--suse-jungle)] text-[var(--suse-pine)] px-[14px]">
+  <div class="mt-[10px] text-[10px] font-bold uppercase tracking-[0.12em]">At home</div>
+  <div class="mt-[4px] text-[19px] leading-[24px]">👦🏼👧🏼👦🏼👦🏼<br>🐑🐑🐑🐑</div>
+  <div class="mt-[4px] text-[11px] font-medium leading-[14px]">complexity doesn’t stop after work</div>
 </At>
 
 ---
@@ -54,20 +62,22 @@ clicks: 1
 
 # Sovereign AI means…
 
-<At :x="25" :y="133" :w="268" :h="139" class="rounded-[16px] bg-[var(--suse-card)] text-[var(--suse-fog)]">
-  <div class="absolute left-[23px] top-[10px] text-[10px] font-bold uppercase tracking-[0.12em] text-mint">What many assume</div>
-  <div class="absolute left-[23px] top-[47px] w-[236px] text-[18px] leading-[22px]">My AI runs in my region.</div>
-  <Pill class="absolute left-[136px] top-[108px]">Where it runs</Pill>
+<At :x="25" :y="121" :w="268" :h="163" class="flex flex-col rounded-[16px] bg-[var(--suse-card)] text-[var(--suse-fog)] px-[20px] pt-[18px] pb-[18px]">
+  <div class="text-[10px] font-bold uppercase tracking-[0.12em] text-mint">What many assume</div>
+  <div class="mt-[12px] text-[24px] font-bold leading-[29px]">My AI runs in my region.</div>
+  <div class="mt-[12px] h-px bg-current opacity-25"></div>
+  <Pill class="mt-auto">Where it runs</Pill>
 </At>
 
 <!-- Click: the arrow draws itself, then the head and the second box fade in -->
 <ArrowRight class="absolute left-[300px] top-[191px]" :w="120" :h="22" :line-end="104" :head-base="100" :head-tip="118" :head-half="10" :stroke="4" :active="$clicks > 0" />
 
-<At :x="427" :y="133" :w="268" :h="139" class="rounded-[16px] bg-[var(--suse-jungle)] transition-opacity duration-500"
+<At :x="427" :y="121" :w="268" :h="163" class="flex flex-col rounded-[16px] bg-[var(--suse-jungle)] text-[var(--suse-pine)] px-[20px] pt-[18px] pb-[18px] transition-opacity duration-500"
   :class="{ 'opacity-0': $clicks < 1 }" :style="{ transitionDelay: $clicks > 0 ? '0.8s' : '0s' }">
-  <div class="absolute left-[23px] top-[10px] text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--suse-pine)]">What it takes</div>
-  <div class="absolute left-[23px] top-[44px] w-[236px] text-[18px] leading-[22px]">I control access to my AI</div>
-  <Pill tone="pine" class="absolute left-[136px] top-[109px]">Who holds the keys</Pill>
+  <div class="text-[10px] font-bold uppercase tracking-[0.12em]">What it takes</div>
+  <div class="mt-[12px] text-[24px] font-bold leading-[29px]">I control access to my AI.</div>
+  <div class="mt-[12px] h-px bg-current opacity-25"></div>
+  <Pill tone="pine" class="mt-auto">Who holds the keys</Pill>
 </At>
 
 ---
@@ -77,24 +87,25 @@ clicks: 1
 
 <!-- One slide, one click: the king and the key-guy fade out, the Sovereignty box, caption and the
      new king fade in. The castle and the two cards stay put. -->
-<At :x="22" :y="23" :w="368" :h="246" class="rounded-[16px] bg-[var(--suse-mint)] text-[var(--suse-pine)] transition-opacity duration-700"
+<At :x="22" :y="23" :w="368" :h="310" class="rounded-[24px] bg-[var(--suse-card)] text-mint transition-opacity duration-700"
   :class="{ 'opacity-0': $clicks < 1 }">
-  <div class="text-center text-[24px] font-bold mt-[8px]">Sovereignty</div>
+  <div class="mx-[12px] mt-[12px] text-[24px] font-bold leading-[30px]">Sovereignty</div>
 </At>
 
 <At v-for="(c, i) in [
-  { t: 'Ownership', q: 'Who holds the title?', items: ['The asset', 'The contract', 'The data in your region'] },
-  { t: 'Control', q: 'Who holds the keys?', items: ['Restrict it?', 'Switch it off?', 'Can you leave?'] },
-]" :key="c.t" :x="29 + i * 185" :y="75" :w="171" :h="187"
-  class="rounded-[16px] bg-[var(--suse-jungle)] text-[var(--suse-pine)]">
-  <div class="text-center text-[25px] font-bold mt-[18px] leading-[30px]">{{ c.t }}</div>
-  <div class="text-center text-[14px] font-bold mt-[13px]">{{ c.q }}</div>
-  <ul class="dots mt-[16px] ml-[27px] mr-[18px] text-[14px] leading-[16.5px]">
+  { t: 'Ownership', dark: false, q: 'Who holds the title?', items: ['The asset', 'The contract', 'The data in your region'] },
+  { t: 'Control', dark: true, q: 'Who holds the keys?', items: ['Restrict it?', 'Switch it off?', 'Can you leave?'] },
+]" :key="c.t" :x="34 + i * 177" :y="76" :w="167" :h="181"
+  class="rounded-[16px]" :class="c.dark ? 'bg-[var(--suse-forest)] text-[var(--suse-fog)]' : 'bg-[var(--suse-jungle)] text-[var(--suse-pine)]'">
+  <div class="mt-[14px] mx-[14px] text-[10px] font-bold uppercase tracking-[0.06em] whitespace-nowrap" :class="c.dark ? 'text-mint' : ''">{{ c.q }}</div>
+  <div class="mx-[14px] text-[25px] font-bold mt-[6px] leading-[30px]">{{ c.t }}</div>
+  <div class="mx-[14px] mt-[12px] h-px bg-current opacity-25"></div>
+  <ul class="dots mt-[12px] mx-[14px] text-[14px] leading-[17px]">
     <li v-for="it in c.items" :key="it">{{ it }}</li>
   </ul>
 </At>
 
-<At :x="29" :y="289" :w="360" class="text-[18px] leading-[21px] text-mint transition-opacity duration-700"
+<At :x="34" :y="277" :w="344" class="text-[16px] leading-[21px] text-mint transition-opacity duration-700"
   :class="{ 'opacity-0': $clicks < 1 }">
   Ownership alone is not sovereignty. Control makes it real.
 </At>
@@ -223,10 +234,11 @@ clicks: 4
 ]" :key="e.when" :x="[27, 158, 290, 422][i]" :y="90" :w="125" :h="229"
   class="rounded-[8px] bg-[var(--suse-pine)] transition-opacity duration-500"
   :class="{ 'opacity-0': $clicks <= i }">
-  <div class="text-center text-[12px] font-bold text-mint mt-[5px]">{{ e.when }}</div>
-  <div class="mx-[6px] mt-[14px] text-[14px] font-bold leading-[16px] text-[var(--suse-fog)] h-[34px]">{{ e.title }}</div>
-  <div class="mx-[6px] mt-[14px] text-[12px] leading-[14.5px] text-[#efefef]">{{ e.body }}</div>
-  <Pill class="absolute left-[4px] bottom-[5px]">{{ e.sov }}</Pill>
+  <div class="mx-[10px] mt-[14px] text-[10px] font-bold uppercase tracking-[0.08em] text-mint whitespace-nowrap">{{ e.when }}</div>
+  <div class="mx-[10px] mt-[8px] text-[14px] font-bold leading-[17px] text-[var(--suse-fog)] h-[34px]">{{ e.title }}</div>
+  <div class="mx-[10px] mt-[12px] h-px bg-white/15"></div>
+  <div class="mx-[10px] mt-[12px] text-[12px] font-light leading-[15px] text-[#c4d3cf]">{{ e.body }}</div>
+  <Pill :w="105" class="absolute left-[10px] bottom-[10px]">{{ e.sov }}</Pill>
 </At>
 
 <At :x="447" :y="83" :w="363" :h="242">
@@ -265,13 +277,11 @@ From blind trust to visibility
   { t: 'Code Transparency', d: 'Verify function and security directly', l: '1 · Map your dependencies' },
   { t: 'No arbitrary restrictions', d: 'No licence limits or feature removals on a whim', l: '2 · Build exit paths' },
   { t: 'Modifiability and control', d: 'Patch in an emergency without waiting for a vendor', l: '3 · Keep control' },
-]" :key="r.t" :x="329" :y="[99, 175, 250][i]" :w="362" :h="65"
-  class="rounded-[6px] bg-[var(--suse-card)] border border-[#2a6354] px-[10px] pt-[9px]">
-  <div class="flex justify-between items-baseline">
-    <span class="text-[16px] font-extrabold">{{ r.t }}</span>
-    <span class="text-[12px] font-bold text-jungle">{{ r.l }}</span>
-  </div>
-  <div class="text-[14px] text-[#efefef] mt-[6px]">{{ r.d }}</div>
+]" :key="r.t" :x="329" :y="[96, 178, 260][i]" :w="362" :h="76"
+  class="rounded-[8px] bg-[var(--suse-card)] border border-[#2a6354] px-[14px] pt-[11px]">
+  <div class="text-[10px] font-bold uppercase tracking-[0.12em] text-mint">{{ r.l }}</div>
+  <div class="mt-[5px] text-[16px] font-bold leading-[20px] text-[var(--suse-fog)]">{{ r.t }}</div>
+  <div class="mt-[3px] text-[13px] font-light leading-[16px] text-[#c4d3cf]">{{ r.d }}</div>
 </At>
 
 ---

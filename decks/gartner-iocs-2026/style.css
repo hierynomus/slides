@@ -66,7 +66,8 @@
 /* Bulleted list with filled dots, as on the Ownership/Control cards */
 .dots li {
   position: relative;
-  padding-left: 27px;
+  padding-left: 17px;
+  margin-top: 5px;
 }
 .dots li::before {
   content: '●';
