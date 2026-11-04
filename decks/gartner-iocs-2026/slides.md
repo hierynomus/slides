@@ -132,14 +132,18 @@ A Remote-access API You Cannot Close
 
 <At :x="288" :y="51" :w="559" :h="312"><img src="/images/server-dome.png" class="w-full h-full" /></At>
 
-<At :x="31" :y="112" :w="360" class="text-[14px] font-medium leading-[24px]">
+<At :x="31" :y="98" :w="372" class="text-[15px] font-medium leading-[21px]">
   US authorities can compel disclosure of data a company controls, including data held in an EU region.
 </At>
 
-<At :x="25" :y="180" :w="384" :h="156" class="rounded-[18px] bg-[var(--suse-pine)] text-[var(--suse-fog)]">
-  <p class="mx-[14px] mt-[16px] text-[16px] leading-[19.5px]">
-    Asked under oath whether data held on its <b class="text-persimmon">EU infrastructure</b> could be guaranteed never to reach <b class="text-persimmon">US authorities</b> without French government consent, A US Hyperscaler France's director of public and legal affairs said “<b class="text-mint">No, I cannot guarantee that</b>”
+<At :x="25" :y="164" :w="384" :h="178" class="rounded-[16px] bg-[var(--suse-pine)] text-[var(--suse-fog)] px-[20px] pt-[16px]">
+  <div class="text-[10px] font-bold uppercase tracking-[0.12em] text-mint">Asked under oath · French Senate, June 2025</div>
+  <p class="mt-[10px] text-[14px] leading-[18px] text-[#c4d3cf]">
+    Could data held on its <b class="text-persimmon">EU infrastructure</b> be guaranteed never to reach <b class="text-persimmon">US authorities</b> without French government consent?
   </p>
+  <div class="mt-[10px] h-px bg-white/15"></div>
+  <div class="mt-[10px] text-[22px] font-bold leading-[26px] text-mint">“No, I cannot guarantee that”</div>
+  <div class="mt-[4px] text-[11px] leading-[14px] text-[#c4d3cf]">A US hyperscaler France’s director of public and legal affairs</div>
 </At>
 
 ---
@@ -151,11 +155,11 @@ A Remote-access API You Cannot Close
   { n: '86%', t: 'of European organizations believe that it is plausible that the U.S. could restrict Europe’s access to digital services', src: 'Gartner Inc., Analyst Take: Digital Sovereignty Breaks the Age of Technological Dominance in Europe, May 2026' },
   { n: '60%', t: 'of respondents already indicated they expected geopolitics to increase their use of local and regional clouds', src: 'Gartner Inc., Hype Cycle for Digital Sovereignty, 2026' },
 ]" :key="s.n">
-  <At :x="26 + i * 226" :y="92" :w="215" :h="229" class="rounded-[12px] bg-[var(--suse-fog)]">
-    <div class="text-center text-[60px] font-bold leading-[72px] mt-[12px] text-[var(--suse-stat)]">{{ s.n }}</div>
-    <p class="mx-[18px] mt-[8px] text-[14px] leading-[23.5px] text-[#353c3b]">{{ s.t }}</p>
+  <At :x="26 + i * 226" :y="88" :w="215" :h="258" class="rounded-[12px] bg-[var(--suse-pine)] text-[var(--suse-fog)] px-[18px]">
+    <div class="text-[60px] font-bold leading-[68px] mt-[16px] text-jungle">{{ s.n }}</div>
+    <p class="mt-[8px] text-[14px] leading-[19px]">{{ s.t }}</p>
+    <div class="absolute left-[18px] right-[18px] bottom-[12px] h-[46px] border-t border-white/15 pt-[8px] text-[9px] leading-[11.5px] italic text-[#a9bdb8]" style="font-family: Arial, sans-serif">{{ s.src }}</div>
   </At>
-  <At :x="33 + i * 226" :y="325" :w="205" class="text-[10px] leading-[12px] italic text-[#9e9e9e]" style="font-family: Arial, sans-serif">{{ s.src }}</At>
 </template>
 
 
@@ -197,6 +201,8 @@ source: SUSE, Hybrid Cloud Survey 2026 (611 IT leaders in the US, UK, France, Ge
   <div class="text-[12px] leading-[16px] text-[#353c3b]">{{ q.d }}</div>
 </At>
 
+---
+clicks: 3
 ---
 
 # The model is easy to swap. The rest is not.
@@ -472,6 +478,26 @@ tone: dark
 <At :x="31" :y="150">
   <div class="text-[14px] font-bold uppercase text-jungle tracking-wide">Backup</div>
   <div class="text-[40px] font-medium leading-[48px]">Appendix</div>
+</At>
+
+---
+source: https://www.senat.fr/compte-rendu-commissions/20250609/ce_commande_publique.html
+---
+
+# The US Cloud Act
+
+A Remote-access API You Cannot Close
+
+<At :x="288" :y="51" :w="559" :h="312"><img src="/images/server-dome.png" class="w-full h-full" /></At>
+
+<At :x="31" :y="112" :w="360" class="text-[14px] font-medium leading-[24px]">
+  US authorities can compel disclosure of data a company controls, including data held in an EU region.
+</At>
+
+<At :x="25" :y="180" :w="384" :h="156" class="rounded-[18px] bg-[var(--suse-pine)] text-[var(--suse-fog)]">
+  <p class="mx-[14px] mt-[16px] text-[16px] leading-[19.5px]">
+    Asked under oath whether data held on its <b class="text-persimmon">EU infrastructure</b> could be guaranteed never to reach <b class="text-persimmon">US authorities</b> without French government consent, A US Hyperscaler France's director of public and legal affairs said “<b class="text-mint">No, I cannot guarantee that</b>”
+  </p>
 </At>
 
 ---
