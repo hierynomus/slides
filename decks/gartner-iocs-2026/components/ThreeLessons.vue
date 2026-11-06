@@ -1,6 +1,6 @@
 <!-- The three lessons from the virtualization shake-up, as stacked cards on the right of the slide -->
 <script setup lang="ts">
-withDefaults(defineProps<{ ys?: number[] }>(), { ys: () => [97, 180, 264] })
+withDefaults(defineProps<{ ys?: number[] }>(), { ys: () => [90, 181, 272] })
 
 const lessons = [
   { title: 'Map your dependencies', detail: 'You cannot plan around a change you cannot see' },

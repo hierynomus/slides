@@ -8,6 +8,7 @@ canvasWidth: 720
 aspectRatio: 16/9
 fonts:
   sans: SUSE
+  mono: SUSE Mono
   weights: '300,400,500,600,700,800'
   italic: true
 colorSchema: light
@@ -50,7 +51,7 @@ Sovereign AI isn't about distrusting cloud or AI vendors. It's about knowing whe
 
 <At :x="548" :y="128" :w="147" :h="104" class="rounded-[12px] bg-[var(--suse-pine)] text-[var(--suse-fog)] px-[14px]">
   <div class="mt-[10px] text-[10px] font-bold uppercase tracking-[0.12em] text-mint">Experience</div>
-  <div class="text-[40px] font-bold leading-[44px] text-jungle">25</div>
+  <div class="font-mono text-[40px] font-bold leading-[44px] text-jungle">25</div>
   <div class="text-[11px] leading-[14px]">years across Engineering, Operations and Product</div>
 </At>
 
@@ -171,23 +172,30 @@ A Remote-access API You Cannot Close
 -->
 
 ---
+gartner: true
+trademarks: [Hype Cycle]
+---
 
 # Sovereignty has moved into the boardroom
 
-<template v-for="(s, i) in [
-  { n: '70%', t: 'say technology sovereignty is an important issue to the CEO & exCo', src: 'Gartner Inc., Digital Sovereignty Is a CEO Priority: A CIO’s Playbook for Competitive Advantage, July 2026' },
-  { n: '86%', t: 'of European organizations believe that it is plausible that the U.S. could restrict Europe’s access to digital services', src: 'Gartner Inc., Analyst Take: Digital Sovereignty Breaks the Age of Technological Dominance in Europe, May 2026' },
-  { n: '60%', t: 'of respondents already indicated they expected geopolitics to increase their use of local and regional clouds', src: 'Gartner Inc., Hype Cycle for Digital Sovereignty, 2026' },
-]" :key="s.n">
-  <At :x="26 + i * 226" :y="88" :w="215" :h="258" class="rounded-[12px] bg-[var(--suse-pine)] text-[var(--suse-fog)] px-[18px]">
-    <div class="text-[60px] font-bold leading-[68px] mt-[16px] text-jungle">{{ s.n }}</div>
-    <p class="mt-[8px] text-[14px] leading-[19px]">{{ s.t }}</p>
-    <div class="absolute left-[18px] right-[18px] bottom-[12px] h-[46px] border-t border-white/15 pt-[8px] text-[9px] leading-[11.5px] italic text-[#a9bdb8]" style="font-family: Arial, sans-serif">{{ s.src }}</div>
+<template v-for="(c, i) in [
+  { nums: ['70%'], q: 'According to Gartner®, “Seventy percent of CEOs rank technology sovereignty (i.e., AI, cloud infrastructure) as important or very important”<sup>1</sup>', src: '<sup>1</sup>Gartner Report, Digital Sovereignty Is a CEO Priority: A CIO’s Playbook for Competitive Advantage, by David Furlonger, Brook Selassie, 6 July 2026' },
+  { nums: ['60%', '52%'], q: 'Gartner states, “In the 2025 Gartner Cloud End-User Buying Behavior Survey, 60% of respondents already indicated they expected geopolitics to increase their use of local and regional clouds, and 52% said open source is becoming more important due to geopolitical concerns.”<sup>2</sup>', src: '<sup>2</sup>Gartner Report, Hype Cycle™ for Digital Sovereignty, 2026, by Gregor Petri, Rene Buest, Nader Henein and Bart Willemsen, 25 June 2026' },
+]" :key="i">
+  <At :x="26 + i * 342" :y="88" :w="326" :h="258" class="rounded-[12px] bg-[var(--suse-pine)] text-[var(--suse-fog)] px-[20px]">
+    <div class="relative flex items-center justify-between mt-[10px] h-[68px]">
+      <template v-for="(n, j) in c.nums" :key="n">
+        <div v-if="j > 0" class="absolute left-1/2 -ml-px h-[48px] w-[2px] bg-[#3b7a69]"></div>
+        <div class="font-mono text-[52px] font-bold leading-[68px] text-jungle">{{ n }}</div>
+      </template>
+    </div>
+    <p class="mt-[6px] text-[13px] leading-[18px]" v-html="c.q"></p>
+    <div class="absolute left-[20px] right-[20px] bottom-[10px] h-[46px] border-t border-white/15 pt-[7px] text-[9px] leading-[11.5px] italic text-[#a9bdb8]" style="font-family: Arial, sans-serif"><p v-html="c.src" /></div>
   </At>
 </template>
 
 <!--
-**Sovereignty has moved into the boardroom.** And it is not one hearing. Gartner's research says 70% now call technology sovereignty an important issue for the CEO and executive committee, 86% of European organizations think it plausible that the US could restrict Europe's access to digital services, and 60% already expected geopolitics to increase their use of local and regional clouds. This used to be an IT checklist item. It is now a business continuity question. The answer is not to leave the cloud. It is to know where the keys are. So let us bring it to AI.
+**Sovereignty has moved into the boardroom.** And it is not one hearing. Gartner's research: seventy percent of CEOs rank technology sovereignty, so AI and cloud infrastructure, as important or very important. And in the 2025 Gartner Cloud End-User Buying Behavior Survey, 60% of respondents already expected geopolitics to increase their use of local and regional clouds, and 52% said open source is becoming more important because of geopolitical concerns. This used to be an IT checklist item. It is now a business continuity question. The answer is not to leave the cloud. It is to know where the keys are. So let us bring it to AI.
 -->
 
 
@@ -201,7 +209,7 @@ source: SUSE, Hybrid Cloud Survey 2026 (611 IT leaders in the US, UK, France, Ge
 
 <At :x="25" :y="83" :w="247" :h="258" class="rounded-[8px] bg-[var(--suse-card)] text-[var(--suse-fog)] px-[16px]">
   <div class="mt-[16px] text-[10px] font-bold uppercase tracking-[0.12em] text-mint">Start at home</div>
-  <div class="text-[64px] font-medium leading-[64px] mt-[4px] text-jungle">91%</div>
+  <div class="font-mono text-[64px] font-medium leading-[64px] mt-[4px] text-jungle">91%</div>
   <p class="text-[14px] font-medium leading-[17px] mt-[6px]">of IT leaders say employees bypass security and compliance controls to deploy AI workloads faster.</p>
   <p class="text-[12px] leading-[16px] mt-[10px] w-[132px] text-[#d5e0dd]">85% worry about data loss and no visibility into running models.</p>
   <img src="/images/qr-suse-survey.svg" class="absolute right-[12px] bottom-[12px] w-[78px] h-[78px] rounded-[4px]" />
@@ -346,12 +354,15 @@ Four: the exit is the hard part. Pause on the rack in chains. For balance: the c
 
 ---
 tone: fog
-source: Gartner Inc., The Shift Toward VMware Alternatives — Mitigating Risks and Costs, April 2026
+source: "Gartner Report, The Shift Toward VMware Alternatives: Mitigating Risks and Costs, by Mike Cisek, Julia Palmer, 16 April 2026"
+gartner: true
 ---
 
 # Three lessons from the Virtualization Shake-up
 
-<VmwareChart title="Negative sentiment among CIOs and IT leaders regarding Broadcom ownership of VMware" />
+<VmwareChart>
+Gartner states, “Negative sentiment among CIOs and IT leaders regarding Broadcom ownership of VMware has continued to grow. In 2024, 33% of CIOs reported a negative sentiment. In 2025, that number grew to 64%, and it now sits at 76% in 2026”<sup>1</sup>
+</VmwareChart>
 
 <ThreeLessons />
 
@@ -361,16 +372,17 @@ source: Gartner Inc., The Shift Toward VMware Alternatives — Mitigating Risks 
 
 ---
 tone: dark
-source: Gartner Inc., The Paradox of Sovereignty and Open Source Exposes Service Providers, April 2026
+source: Gartner Report, The Paradox of Sovereignty and Open Source Exposes Service Providers, by Fernando Pereiro, Rene Buest, 29 April 2026
+gartner: true
 ---
 
 # Open Source gives you the master key
 
 From blind trust to visibility
 
-<At :x="31" :y="108" class="text-[60px] font-bold leading-[72px] text-jungle">80%</At>
+<At :x="31" :y="108" class="font-mono text-[60px] font-bold leading-[72px] text-jungle">80%</At>
 <At :x="31" :y="182" :w="225" class="text-[14px] leading-[17px] text-[var(--suse-mist)]">
-  of respondents believe geopolitical concerns have made open-source a more important criterion when selecting new cloud solutions for their organizations.
+  Gartner states, "80% of respondents believe geopolitical concerns have made open-source a more important criterion when selecting new cloud solutions for their organizations."<sup>1</sup>
 </At>
 
 <At v-for="(r, i) in [
@@ -719,7 +731,7 @@ tone: fog
 </At>
 
 <At :x="444" :y="147" :w="252" :h="206" class="rounded-[8px] bg-[#f7f8f8] border border-[#ccc] px-[12px]">
-  <div class="text-[60px] leading-[72px] mt-[2px] text-[var(--suse-stat)]">35%</div>
+  <div class="font-mono text-[60px] leading-[72px] mt-[2px] text-[var(--suse-stat)]">35%</div>
   <p class="text-[16px] leading-[27px] text-[#353c3b] mt-[2px]">of countries will be locked into region-specific AI platforms using proprietary contextual data by 2027</p>
 </At>
 
@@ -791,10 +803,14 @@ tone: fog
 
 ---
 tone: fog
+source: Gartner Inc., The Shift Toward VMware Alternatives — Mitigating Risks and Costs, April 2026
+gartner: true
 ---
 
 # Three lessons from the Virtualization Shake-up
 
-<VmwareChart title="Negative outlook on the platform’s new ownership" :top="104" />
+<VmwareChart>
+Gartner states, “Negative sentiment among CIOs and IT leaders regarding Broadcom ownership of VMware has continued to grow. In 2024, 33% of CIOs reported a negative sentiment. In 2025, that number grew to 64%, and it now sits at 76% in 2026”<sup>1</sup>
+</VmwareChart>
 
-<ThreeLessons :ys="[104, 184, 264]" />
+<ThreeLessons />

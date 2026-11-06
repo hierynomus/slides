@@ -88,3 +88,13 @@
 .text-jungle { color: var(--suse-jungle); }
 .text-mint { color: var(--suse-mint); }
 .text-persimmon { color: var(--suse-persimmon); }
+.source.source-left {
+  right: auto;
+  left: 31px;
+  top: 347px;
+}
+.source.source-stack {
+  top: 375px;
+  line-height: 12px;
+  text-align: right;
+}
