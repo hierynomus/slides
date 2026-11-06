@@ -24,6 +24,10 @@ layout: suse-cover
   Jeroen van Erp<br>Technology Advocate
 </div>
 
+<!--
+**The title.** "Your AI, Your Kingdom, Someone Else's Keys?" I start with the question, not a product. Whose keys are they? And I set the tone early: this is not about distrusting cloud or AI vendors. They are partners in this hall. It is about knowing where your keys are, and who else can turn them.
+-->
+
 ---
 
 # Abstract
@@ -80,6 +84,14 @@ clicks: 1
   <Pill tone="pine" class="mt-auto">Who holds the keys</Pill>
 </At>
 
+<!--
+**Sovereign AI means…** Here is the idea in two cards. On the left, what many people assume: sovereign AI means my AI runs in my region. That is where most of the room stands, and it is mostly what data protection rules like GDPR give you. They govern where and how personal data moves. They say very little about who controls the AI.
+
+[click]
+
+On the right, what it takes: I control access to my AI. The shift is from where it runs to who holds the keys. I say "access to the model" so nobody hears it as access to their data.
+-->
+
 ---
 tone: dark
 clicks: 1
@@ -122,6 +134,14 @@ clicks: 1
   <img src="/images/man-walking-keys.png" />
 </At>
 
+<!--
+**The castle.** Here is what that looks like. The king owns the castle, and someone else walks off with the keys. Ownership is who holds the title: the asset, the contract, the data in your region. Control is who holds the keys: can you restrict it, switch it off, leave? Ownership and control are not the same thing. And the person walking away is "someone else", not a vendor. This is about structure, not about any company.
+
+[click]
+
+**Sovereignty.** Same castle, now the king holds his own keys. Sovereignty is ownership plus control. And note what this does not say: you do not have to own everything. You can rent the ground under the castle, a cloud, and still hold the keys. One line matters most, "can you leave?", because lock-in is what happens when the answer is no. We will come back to it.
+-->
+
 ---
 source: https://www.senat.fr/compte-rendu-commissions/20250609/ce_commande_publique.html
 ---
@@ -146,6 +166,10 @@ A Remote-access API You Cannot Close
   <div class="mt-[4px] text-[11px] leading-[14px] text-[#c4d3cf]">A US hyperscaler France’s director of public and legal affairs</div>
 </At>
 
+<!--
+**A remote-access API you cannot close.** Now a concrete case. The US CLOUD Act lets US authorities compel a company to disclose data it controls, including data held in an EU region. It follows the company, not the location of the data, so the region logo is not a firewall. In June 2025, in the French Senate, the director of public and legal affairs at Microsoft France was asked under oath whether data on its EU infrastructure could be guaranteed never to reach US authorities without French government consent. He said he could not guarantee that. For fairness: he noted it had never actually happened, and Microsoft points to EU data boundary commitments. But the question was about a US legal order, and that is the point. It is the law, not one company.
+-->
+
 ---
 
 # Sovereignty has moved into the boardroom
@@ -161,6 +185,10 @@ A Remote-access API You Cannot Close
     <div class="absolute left-[18px] right-[18px] bottom-[12px] h-[46px] border-t border-white/15 pt-[8px] text-[9px] leading-[11.5px] italic text-[#a9bdb8]" style="font-family: Arial, sans-serif">{{ s.src }}</div>
   </At>
 </template>
+
+<!--
+**Sovereignty has moved into the boardroom.** And it is not one hearing. Gartner's research says 70% now call technology sovereignty an important issue for the CEO and executive committee, 86% of European organizations think it plausible that the US could restrict Europe's access to digital services, and 60% already expected geopolitics to increase their use of local and regional clouds. This used to be an IT checklist item. It is now a business continuity question. The answer is not to leave the cloud. It is to know where the keys are. So let us bring it to AI.
+-->
 
 
 ---
@@ -203,6 +231,22 @@ source: SUSE, Hybrid Cloud Survey 2026 (611 IT leaders in the US, UK, France, Ge
   <span class="text-[20px] font-medium leading-[24px]">{{ q }}</span>
 </At>
 
+<!--
+**In AI, owning your data is not controlling it.** Your data goes into an AI service, run by someone else, on their terms and under their jurisdiction. And I start at home. In a survey of 611 IT leaders that we ran in September, 91% said employees bypass security and compliance controls to deploy AI workloads faster, and 85% are worried, about data loss and about having no visibility into the models that are running. You cannot hold the keys to AI you cannot see.
+
+[click]
+
+Then three questions any buyer can ask any provider. Who holds the keys: can only you control the encryption keys?
+
+[click]
+
+Whose law can compel it: jurisdiction follows the provider, not the region.
+
+[click]
+
+And can you audit the AI: who accessed your data, and what did the AI do with it? That is a checklist, not an accusation. (The QR code takes people to the survey. I mention only the survey.)
+-->
+
 ---
 clicks: 3
 ---
@@ -213,6 +257,22 @@ clicks: 3
 
 <!-- Clicks: the dependencies appear in pairs, each with its arc label -->
 <LockInHex :clicks="$clicks" />
+
+<!--
+**The model is easy to swap. The rest is not.** Here I concede the obvious point first. Swapping one provider's model for another is often easy, and an engineer in the room will tell you so. So where does lock-in come from? From everything built around the model. Six dependencies, in three pairs.
+
+[click]
+
+What it knows: the indexes built over your documents only work with the model that built them, and what the AI learns about you can stay in the provider's store.
+
+[click]
+
+How you work: workflows and agents built on an interface the provider can retire, and prompts tuned to one model that can change under you.
+
+[click]
+
+Where it runs: compute and capacity, and whose law applies to your prompts. And providers keep widening the bundle: agents, connectors, memory. So since swapping the model is easy, make it deliberately easy, by owning the layer in between: your gateway, your index, your keys.
+-->
 
 ---
 tone: dark
@@ -226,6 +286,14 @@ The EU Cloud Sovereignty Framework
 <!-- Click: SOV-1 pops out and glows, and its "Ownership" pill fades in -->
 <SovGrid :focus="$clicks > 0 ? [1, 4, 5, 6] : []" :labels="{1: 'Ownership', 4: 'Control', 5: 'Control', 6: 'Control'}" />
 <At :x="38" :y="293" class="text-[18px] text-mint">Each objective is scored from SEAL-0 to SEAL-4</At>
+
+<!--
+**Sovereignty becomes something you can score.** How do you measure all that? The European Commission has a framework, first used in a tender in April 2026. Eight objectives, each scored on five assurance levels. The colours match the six dependencies: what it knows maps to data and AI, how you work to operations and technology, where it runs to legal and supply chain. Two things to say aloud. No certification exists; the levels apply within a procurement assessment.
+
+[click]
+
+And look at the grey boxes: ownership of the provider is one objective out of eight. Most of the rest are control. That is our thesis, scored by the EU.
+-->
 
 ---
 tone: fog
@@ -256,6 +324,26 @@ clicks: 4
     :class="{ 'opacity-0': $clicks < 3 }" />
 </At>
 
+<!--
+**Lock-in is what ownership without control looks like.** One case that touched four of those objectives, in four stages.
+
+[click]
+
+One: over the years, workloads, tooling and skills get built around one platform. That is the starting point, and the reason it hurts later.
+
+[click]
+
+Two: on 22 November 2023 the owner changes, Broadcom completes its acquisition of VMware.
+
+[click]
+
+Three: 19 days later, on 11 December, the terms change. Perpetual licences stay usable, but new perpetual sales and support renewals end. You keep what you bought, and someone else sets the terms around it. That is ownership without control in one sentence.
+
+[click]
+
+Four: the exit is the hard part. Pause on the rack in chains. For balance: the company describes this as completing a move to subscription, as much of the industry has done. The point is that the customer had no say.
+-->
+
 ---
 tone: fog
 source: Gartner Inc., The Shift Toward VMware Alternatives — Mitigating Risks and Costs, April 2026
@@ -266,6 +354,10 @@ source: Gartner Inc., The Shift Toward VMware Alternatives — Mitigating Risks 
 <VmwareChart title="Negative sentiment among CIOs and IT leaders regarding Broadcom ownership of VMware" />
 
 <ThreeLessons />
+
+<!--
+**Three lessons.** Gartner measured the mood: negative sentiment among CIOs and IT leaders about this ownership went from 33% in 2024, to 64%, to 76% in 2026. And the market learned three lessons. Map your dependencies, because you cannot plan around a change you cannot see. Build exit paths, because switching costs show up on the way out, so plan before the terms change. Keep control, because negotiating strength comes from options you can actually use. And the same question now applies to AI. Hold on to those three lessons. They come back.
+-->
 
 ---
 tone: dark
@@ -292,6 +384,10 @@ From blind trust to visibility
   <div class="mt-[3px] text-[13px] font-light leading-[16px] text-[#c4d3cf]">{{ r.d }}</div>
 </At>
 
+<!--
+**Open source gives you the master key.** So how do you hold the keys? Open source is the mechanism, not an ideology: it takes you from blind trust to visibility. And its three payoffs line up with the three lessons. Code transparency lets you map your dependencies, because you can see what the code does and what it is made of. No arbitrary restrictions lets you build exit paths, because nothing in the licence traps you. Modifiability keeps control in your hands, because in an emergency you can patch it yourself. Gartner found that 80% of respondents say geopolitical concerns have made open source a more important criterion when choosing new cloud solutions. Two honest caveats: this means a recognised open source licence, and the keys are only yours if you also run it on infrastructure you control.
+-->
+
 ---
 
 # Bringing AI home: the master key comes in steps
@@ -313,6 +409,10 @@ From blind trust to visibility
   </ul>
 </Tower>
 
+<!--
+**Bringing AI home.** What about AI models? There the master key comes in steps, and the castle lights up as you collect keys. A quick word on weights: they are what the model learned in training, the finished product, not the recipe. Three keys to collect: where it runs, who controls access, and what you can see. Step one, a model as a service: it runs on their infrastructure, they control access, and you see nothing inside. No keys. Step two, a closed model on your own infrastructure: it runs on yours, which is real, but the vendor still controls access through licence and updates, and you still see nothing inside. One key. Step three, open weights: you run it where you choose and you control access, because you hold your own copy, but you cannot see what it was trained on. Two and a half keys. Step four, fully open: weights, training data information and code, so you can inspect and rebuild everything. Three keys, and rare today. Say that plainly.
+-->
+
 ---
 
 # Not every AI workload needs to be in the keep
@@ -332,6 +432,10 @@ From blind trust to visibility
     <div class="text-[14px] leading-[17px] w-[280px]">{{ l.d }}</div>
   </div>
 </At>
+
+<!--
+**Not every workload needs to be in the keep.** Which step is right for which workload? A castle seen from above. The outer ring is standard AI: public cloud and global platforms, perfectly right for non-sensitive work. Then regulated AI: a sovereign cloud with customer-managed keys. Then sovereignty-sensitive AI: regional providers and local open-weight models. And in the centre, the keep: strategic AI on air-gapped or private infrastructure, for your core intellectual property. The keep is the most expensive place to be, so most workloads do not need it. Score each workload on three things, data and model governance, infrastructure and operations, strategic and legal compliance, then place it.
+-->
 
 ---
 clicks: 4
@@ -354,6 +458,26 @@ clicks: 4
     <div class="text-[14px] leading-[17px]">{{ l.d }}</div>
   </div>
 </At>
+
+<!--
+**Placement is not permanent.** And that placement will change, for four reasons.
+
+[click]
+
+A provider revokes model access: the model is gone, with no direct replacement, so you need a new one.
+
+[click]
+
+The regulations change: you tighten, and the workload moves inward.
+
+[click]
+
+A new version is released: you adapt the workload in place.
+
+[click]
+
+A new frontier model arrives: you can expand outward to use it, if the risk allows. Inward is more control, outward is more capability.
+-->
 
 ---
 tone: fog
@@ -396,6 +520,14 @@ clicks: 2
   A little friction now. <span class="text-[var(--suse-teal)]">A real exit later.</span>
 </At>
 
+<!--
+**What it costs, and what it buys.** I will be honest about the price. You give up the single-provider default, some speed on day one, and the comfort of "they handle it".
+
+[click]
+
+What you keep is a real exit, negotiating strength, and control of your data and your roadmap. You may be thinking: switching is easy, we trust our provider, open models are not good enough. The model is easy to swap and the rest is not. Trust is not control. And you choose by risk, not by ideology.
+-->
+
 ---
 tone: dark
 ---
@@ -414,6 +546,22 @@ tone: dark
   <div class="mt-[14px] text-[16px] font-bold leading-[21px] text-[var(--suse-fog)] whitespace-nowrap">{{ c.t }}</div>
   <p class="mt-[12px] text-[12.5px] font-light leading-[18px] text-[#a9bdb8]">{{ c.d }}</p>
 </At>
+
+<!--
+**Three things to do on Monday.** They are the three lessons again.
+
+[click]
+
+One, map your dependencies: ask every AI provider the three questions, then map the six dependencies for your most important AI workload, starting with what your own teams already run.
+
+[click]
+
+Two, build exit paths: put a number on it. How many days to move this workload? Answer in a unit, not a plan, then rehearse it once a year.
+
+[click]
+
+Three, keep control: place each workload where its risk belongs, and run one open-weight model on an open platform you control, with keys you hold. A small pilot beats a strategy document.
+-->
 
 ---
 tone: dark
@@ -436,6 +584,10 @@ tone: dark
   The alternative: find out later which decisions were made for you.
 </At>
 
+<!--
+**A year from now.** Picture the result. You know where your keys are, and who else can turn them. You know how many days it takes to move an AI workload. You know that switching AI providers is a decision, not a rebuild. The alternative is to find out later which decisions were made for you.
+-->
+
 ---
 tone: dark
 ---
@@ -454,6 +606,10 @@ tone: dark
 
 <At :x="341" :y="0" :w="379"><img src="/images/castle.png" /></At>
 <At :x="458" :y="104" :w="354"><img src="/images/king-keys.png" /></At>
+
+<!--
+**The answer to the title.** Your AI. Your kingdom. Your keys. Not because anyone is the enemy, but because owning is not controlling. Thank you, and I would love your questions.
+-->
 
 ---
 layout: brand
