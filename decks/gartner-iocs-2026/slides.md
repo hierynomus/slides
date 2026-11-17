@@ -26,9 +26,11 @@ layout: suse-cover
 </div>
 
 <!--
-**The title.** "Your AI, Your Kingdom, Someone Else's Keys?" I start with the question, not a product. Whose keys are they? And I set the tone early: this is not about distrusting cloud or AI vendors. They are partners in this hall. It is about knowing where your keys are, and who else can turn them.
+**The title.** "Your AI, Your Kingdom, Someone Else's Keys?" I start with a question, not a product: whose keys are they? And let me say what this talk is not. It is not about distrusting cloud or AI vendors. Many of them are partners in this hall. It is about knowing where your keys are, and who else can turn them. To get there, we first need to agree on what "sovereign AI" actually means.
 -->
 
+---
+hide: true
 ---
 
 # Abstract
@@ -86,11 +88,11 @@ clicks: 1
 </At>
 
 <!--
-**Sovereign AI means…** Here is the idea in two cards. On the left, what many people assume: sovereign AI means my AI runs in my region. That is where most of the room stands, and it is mostly what data protection rules like GDPR give you. They govern where and how personal data moves. They say very little about who controls the AI.
+**Sovereign AI means…** Ask most people and you hear this: "my AI runs in my region." That is where most of the room stands, and it is mostly what data protection rules like GDPR give you. They govern where and how personal data moves. They say very little about who controls the AI.
 
 [click]
 
-On the right, what it takes: I control access to my AI. The shift is from where it runs to who holds the keys. I say "access to the model" so nobody hears it as access to their data.
+What it takes is something else: I control access to my AI. The shift is from where it runs to who holds the keys. I say "access to the model" on purpose, so nobody hears it as access to their data. That is abstract, so let me give you a picture.
 -->
 
 ---
@@ -136,14 +138,15 @@ clicks: 1
 </At>
 
 <!--
-**The castle.** Here is what that looks like. The king owns the castle, and someone else walks off with the keys. Ownership is who holds the title: the asset, the contract, the data in your region. Control is who holds the keys: can you restrict it, switch it off, leave? Ownership and control are not the same thing. And the person walking away is "someone else", not a vendor. This is about structure, not about any company.
+**The castle.** The king owns the castle, and someone else walks off with the keys. Ownership is who holds the title: the asset, the contract, the data in your region. Control is who holds the keys: can you restrict it, switch it off, leave? Those are not the same thing. And note that the person walking away is "someone else", not a vendor. This is about structure, not about any company.
 
 [click]
 
-**Sovereignty.** Same castle, now the king holds his own keys. Sovereignty is ownership plus control. And note what this does not say: you do not have to own everything. You can rent the ground under the castle, a cloud, and still hold the keys. One line matters most, "can you leave?", because lock-in is what happens when the answer is no. We will come back to it.
+Same castle, but now the king holds his own keys. That is sovereignty: ownership plus control. And look at what this does not say. You do not have to own everything. You can rent the ground under the castle, a cloud, and still hold the keys. One line matters most, "can you leave?", because lock-in is what happens when the answer is no. We will come back to that. But first, is this a real risk, or just a nice picture? Let me show you what happens when someone is asked under oath.
 -->
 
 ---
+clicks: 1
 source: https://www.senat.fr/compte-rendu-commissions/20250609/ce_commande_publique.html
 ---
 
@@ -157,7 +160,9 @@ A Remote-access API You Cannot Close
   US authorities can compel disclosure of data a company controls, including data held in an EU region.
 </At>
 
-<At :x="25" :y="164" :w="384" :h="178" class="rounded-[16px] bg-[var(--suse-pine)] text-[var(--suse-fog)] px-[20px] pt-[16px]">
+<!-- Click: the Senate testimony fades in -->
+<At :x="25" :y="164" :w="384" :h="178" class="rounded-[16px] bg-[var(--suse-pine)] text-[var(--suse-fog)] px-[20px] pt-[16px] transition-opacity duration-500"
+  :class="{ 'opacity-0': $clicks < 1 }">
   <div class="text-[10px] font-bold uppercase tracking-[0.12em] text-mint">Asked under oath · French Senate, June 2025</div>
   <p class="mt-[10px] text-[14px] leading-[18px] text-[#c4d3cf]">
     Could data held on its <b class="text-persimmon">EU infrastructure</b> be guaranteed never to reach <b class="text-persimmon">US authorities</b> without French government consent?
@@ -168,12 +173,15 @@ A Remote-access API You Cannot Close
 </At>
 
 <!--
-**A remote-access API you cannot close.** Now a concrete case. The US CLOUD Act lets US authorities compel a company to disclose data it controls, including data held in an EU region. It follows the company, not the location of the data, so the region logo is not a firewall. In June 2025, in the French Senate, the director of public and legal affairs at Microsoft France was asked under oath whether data on its EU infrastructure could be guaranteed never to reach US authorities without French government consent. He said he could not guarantee that. For fairness: he noted it had never actually happened, and Microsoft points to EU data boundary commitments. But the question was about a US legal order, and that is the point. It is the law, not one company.
+**A remote-access API you cannot close.** The US CLOUD Act lets US authorities compel a company to disclose data it controls, including data held in an EU region. It follows the company, not the location of the data, so the region logo is not a firewall. Jurisdiction follows the provider, not the data centre. Keep that in mind, because the next question is whether a provider will say so out loud.
+
+[click]
+
+In June 2025, in the French Senate, the director of public and legal affairs at a US hyperscaler's French subsidiary was asked under oath whether data on its EU infrastructure could be guaranteed never to reach US authorities without French government consent. He said he could not guarantee that. For fairness: he noted it had never actually happened, and the provider points to its EU data boundary commitments. But the question was about a US legal order, and that is the point. This is the law, not one company. And you are not the only ones who noticed.
 -->
 
 ---
-gartner: true
-trademarks: [Hype Cycle]
+trademarks: [GARTNER, Hype Cycle]
 ---
 
 # Sovereignty has moved into the boardroom
@@ -195,7 +203,7 @@ trademarks: [Hype Cycle]
 </template>
 
 <!--
-**Sovereignty has moved into the boardroom.** And it is not one hearing. Gartner's research: seventy percent of CEOs rank technology sovereignty, so AI and cloud infrastructure, as important or very important. And in the 2025 Gartner Cloud End-User Buying Behavior Survey, 60% of respondents already expected geopolitics to increase their use of local and regional clouds, and 52% said open source is becoming more important because of geopolitical concerns. This used to be an IT checklist item. It is now a business continuity question. The answer is not to leave the cloud. It is to know where the keys are. So let us bring it to AI.
+**Sovereignty has moved into the boardroom.** It is not one hearing, and it is not one voice. Gartner's research: seventy percent of CEOs rank technology sovereignty, so AI and cloud infrastructure, as important or very important. And in the 2025 Gartner Cloud End-User Buying Behavior Survey, 60% of respondents already expected geopolitics to increase their use of local and regional clouds, and 52% said open source is becoming more important because of geopolitical concerns. This used to be an IT checklist item. It is now a business continuity question. The answer is not to leave the cloud. It is to know where the keys are. So let us bring that question to AI, where it gets harder.
 -->
 
 
@@ -240,19 +248,19 @@ source: SUSE, Hybrid Cloud Survey 2026 (611 IT leaders in the US, UK, France, Ge
 </At>
 
 <!--
-**In AI, owning your data is not controlling it.** Your data goes into an AI service, run by someone else, on their terms and under their jurisdiction. And I start at home. In a survey of 611 IT leaders that we ran in September, 91% said employees bypass security and compliance controls to deploy AI workloads faster, and 85% are worried, about data loss and about having no visibility into the models that are running. You cannot hold the keys to AI you cannot see.
+**In AI, owning your data is not controlling it.** Your data goes into an AI service, run by someone else, on their terms and under their jurisdiction. And I want to start at home. In a survey of 611 IT leaders that we ran in September, 91% said employees bypass security and compliance controls to deploy AI workloads faster, and 85% are worried, about data loss and about having no visibility into the models that are running. You cannot hold the keys to AI you cannot see. So what do you ask? Three questions, for any provider.
 
 [click]
 
-Then three questions any buyer can ask any provider. Who holds the keys: can only you control the encryption keys?
+First: who holds the keys? Can only you control the encryption keys?
 
 [click]
 
-Whose law can compel it: jurisdiction follows the provider, not the region.
+Second: whose law can compel it? Jurisdiction follows the provider, not the region. We just saw that.
 
 [click]
 
-And can you audit the AI: who accessed your data, and what did the AI do with it? That is a checklist, not an accusation. (The QR code takes people to the survey. I mention only the survey.)
+Third: can you audit the AI? Who accessed your data, and what did the AI do with it? That is a checklist, not an accusation. (The QR code takes people to the survey. I mention only the survey.) Now, an engineer will say: fine, but if I do not like a provider, I will just swap the model.
 -->
 
 ---
@@ -267,19 +275,19 @@ clicks: 3
 <LockInHex :clicks="$clicks" />
 
 <!--
-**The model is easy to swap. The rest is not.** Here I concede the obvious point first. Swapping one provider's model for another is often easy, and an engineer in the room will tell you so. So where does lock-in come from? From everything built around the model. Six dependencies, in three pairs.
+**The model is easy to swap. The rest is not.** I concede that point first, because it is fair. Swapping one provider's model for another is often easy. So where does lock-in come from? From everything built around the model. Six dependencies, in three pairs.
 
 [click]
 
-What it knows: the indexes built over your documents only work with the model that built them, and what the AI learns about you can stay in the provider's store.
+What it knows. The indexes built over your documents only work with the model that built them, and what the AI learns about you can stay in the provider's store.
 
 [click]
 
-How you work: workflows and agents built on an interface the provider can retire, and prompts tuned to one model that can change under you.
+How you work. Workflows and agents built on an interface the provider can retire, and prompts tuned to one model that can change under you.
 
 [click]
 
-Where it runs: compute and capacity, and whose law applies to your prompts. And providers keep widening the bundle: agents, connectors, memory. So since swapping the model is easy, make it deliberately easy, by owning the layer in between: your gateway, your index, your keys.
+Where it runs. Compute and capacity, and whose law applies to your prompts. And providers keep widening the bundle: agents, connectors, memory. So since swapping the model is easy, make it deliberately easy, by owning the layer in between: your gateway, your index, your keys. Which raises the obvious question: how do you measure any of this?
 -->
 
 ---
@@ -296,11 +304,11 @@ The EU Cloud Sovereignty Framework
 <At :x="38" :y="293" class="text-[18px] text-mint">Each objective is scored from SEAL-0 to SEAL-4</At>
 
 <!--
-**Sovereignty becomes something you can score.** How do you measure all that? The European Commission has a framework, first used in a tender in April 2026. Eight objectives, each scored on five assurance levels. The colours match the six dependencies: what it knows maps to data and AI, how you work to operations and technology, where it runs to legal and supply chain. Two things to say aloud. No certification exists; the levels apply within a procurement assessment.
+**Sovereignty becomes something you can score.** Every vendor in this hall will tell you they are sovereign. How do you check without reading a marketing slide? The European Commission built a framework for exactly that, and first used it in a tender in April 2026. Eight objectives, each scored on five assurance levels, from SEAL-0 to SEAL-4. And it connects to what we just walked through: the colours match the six dependencies. What it knows maps to data and AI, how you work to operations and technology, where it runs to legal and supply chain. Two things to say aloud. No certification exists; the levels apply within a procurement assessment. And the ownership and control labels you will see are our reading of it.
 
 [click]
 
-And look at the grey boxes: ownership of the provider is one objective out of eight. Most of the rest are control. That is our thesis, scored by the EU.
+Now look at the grey boxes. Ownership of the provider is one objective out of eight. Operations, supply chain and technology are all control, and so is most of the rest. A vendor can do well on the first and badly on the others. That is our thesis, written down by the EU. Keep SOV-4, 5 and 6 in mind, because next I will show you what happens when they fail.
 -->
 
 ---
@@ -333,15 +341,15 @@ clicks: 4
 </At>
 
 <!--
-**Lock-in is what ownership without control looks like.** One case that touched four of those objectives, in four stages.
+**Lock-in is what ownership without control looks like.** One real case that touched four of those objectives, in four stages.
 
 [click]
 
-One: over the years, workloads, tooling and skills get built around one platform. That is the starting point, and the reason it hurts later.
+One: over the years, workloads, tooling and skills get built around one platform. That is the starting point, and it is the reason what follows hurts.
 
 [click]
 
-Two: on 22 November 2023 the owner changes, Broadcom completes its acquisition of VMware.
+Two: on 22 November 2023 the owner changes. Broadcom completes its acquisition of VMware.
 
 [click]
 
@@ -349,31 +357,31 @@ Three: 19 days later, on 11 December, the terms change. Perpetual licences stay 
 
 [click]
 
-Four: the exit is the hard part. Pause on the rack in chains. For balance: the company describes this as completing a move to subscription, as much of the industry has done. The point is that the customer had no say.
+Four: the exit is the hard part. Pause on the rack in chains. For balance: the company describes this as completing a move to subscription, as much of the industry has done. The point is that the customer had no say. And that is where the market learned something.
 -->
 
 ---
 tone: fog
 source: "Gartner Report, The Shift Toward VMware Alternatives: Mitigating Risks and Costs, by Mike Cisek, Julia Palmer, 16 April 2026"
-gartner: true
+trademarks: [GARTNER]
 ---
 
 # Three lessons from the Virtualization Shake-up
 
-<VmwareChart>
+<VmwareQuote>
 Gartner states, “Negative sentiment among CIOs and IT leaders regarding Broadcom ownership of VMware has continued to grow. In 2024, 33% of CIOs reported a negative sentiment. In 2025, that number grew to 64%, and it now sits at 76% in 2026”<sup>1</sup>
-</VmwareChart>
+</VmwareQuote>
 
 <ThreeLessons />
 
 <!--
-**Three lessons.** Gartner measured the mood: negative sentiment among CIOs and IT leaders about this ownership went from 33% in 2024, to 64%, to 76% in 2026. And the market learned three lessons. Map your dependencies, because you cannot plan around a change you cannot see. Build exit paths, because switching costs show up on the way out, so plan before the terms change. Keep control, because negotiating strength comes from options you can actually use. And the same question now applies to AI. Hold on to those three lessons. They come back.
+**Three lessons.** Gartner measured the mood: negative sentiment among CIOs and IT leaders about this ownership went from 33% in 2024, to 64% in 2025, to 76% in 2026. People learned three lessons the hard way. Map your dependencies, because you cannot plan around a change you cannot see. Build exit paths, because switching costs show up on the way out, so plan before the terms change. Keep control, because negotiating strength comes from options you can actually use. And the same question now applies to AI. Hold on to these three lessons, because they come back. First, though: how do you actually get hold of the keys?
 -->
 
 ---
 tone: dark
 source: Gartner Report, The Paradox of Sovereignty and Open Source Exposes Service Providers, by Fernando Pereiro, Rene Buest, 29 April 2026
-gartner: true
+trademarks: [GARTNER]
 ---
 
 # Open Source gives you the master key
@@ -397,7 +405,7 @@ From blind trust to visibility
 </At>
 
 <!--
-**Open source gives you the master key.** So how do you hold the keys? Open source is the mechanism, not an ideology: it takes you from blind trust to visibility. And its three payoffs line up with the three lessons. Code transparency lets you map your dependencies, because you can see what the code does and what it is made of. No arbitrary restrictions lets you build exit paths, because nothing in the licence traps you. Modifiability keeps control in your hands, because in an emergency you can patch it yourself. Gartner found that 80% of respondents say geopolitical concerns have made open source a more important criterion when choosing new cloud solutions. Two honest caveats: this means a recognised open source licence, and the keys are only yours if you also run it on infrastructure you control.
+**Open source gives you the master key.** Open source is the mechanism here, not an ideology. It takes you from blind trust to visibility. And its three payoffs line up with the three lessons. Code transparency lets you map your dependencies, because you can see what the code does and what it is made of. No arbitrary restrictions lets you build exit paths, because nothing in the licence traps you. Modifiability keeps control in your hands, because in an emergency you can patch it yourself. Gartner found that 80% of respondents say geopolitical concerns have made open source a more important criterion when choosing new cloud solutions. Two honest caveats: this means a recognised open source licence, and the keys are only yours if you also run it on infrastructure you control. So what does that look like for AI models?
 -->
 
 ---
@@ -422,7 +430,9 @@ From blind trust to visibility
 </Tower>
 
 <!--
-**Bringing AI home.** What about AI models? There the master key comes in steps, and the castle lights up as you collect keys. A quick word on weights: they are what the model learned in training, the finished product, not the recipe. Three keys to collect: where it runs, who controls access, and what you can see. Step one, a model as a service: it runs on their infrastructure, they control access, and you see nothing inside. No keys. Step two, a closed model on your own infrastructure: it runs on yours, which is real, but the vendor still controls access through licence and updates, and you still see nothing inside. One key. Step three, open weights: you run it where you choose and you control access, because you hold your own copy, but you cannot see what it was trained on. Two and a half keys. Step four, fully open: weights, training data information and code, so you can inspect and rebuild everything. Three keys, and rare today. Say that plainly.
+**Bringing AI home.** For AI models, the master key comes in steps, and the castle lights up as you collect keys. A quick word on weights: they are what the model learned in training, the finished product, not the recipe. There are three keys to collect: where it runs, who controls access, and what you can see.
+
+Step one, a model as a service. It runs on their infrastructure, they control access, and you see nothing inside. No keys. Step two, a closed model on your own infrastructure. It runs on yours, which is real, but the vendor still controls access through licence and updates, and you still see nothing inside. One key. Step three, open weights. You run it where you choose and you control access, because you hold your own copy, but you cannot see what it was trained on. Two and a half keys. Step four, fully open: weights, training data information and code, so you can inspect and rebuild everything. Three keys, and rare today. Say that plainly. Now, does everything need to be at step four? No.
 -->
 
 ---
@@ -446,7 +456,7 @@ From blind trust to visibility
 </At>
 
 <!--
-**Not every workload needs to be in the keep.** Which step is right for which workload? A castle seen from above. The outer ring is standard AI: public cloud and global platforms, perfectly right for non-sensitive work. Then regulated AI: a sovereign cloud with customer-managed keys. Then sovereignty-sensitive AI: regional providers and local open-weight models. And in the centre, the keep: strategic AI on air-gapped or private infrastructure, for your core intellectual property. The keep is the most expensive place to be, so most workloads do not need it. Score each workload on three things, data and model governance, infrastructure and operations, strategic and legal compliance, then place it.
+**Not every workload needs to be in the keep.** So which step is right for which workload? Look at the castle from above. The outer ring is standard AI: public cloud and global platforms, perfectly right for non-sensitive work. Then regulated AI: a sovereign cloud with customer-managed keys. Then sovereignty-sensitive AI: regional providers and local open-weight models. And in the centre, the keep: strategic AI on air-gapped or private infrastructure, for your core intellectual property. The keep is the most expensive place to be, so most workloads do not need it. Score each workload on three things, data and model governance, infrastructure and operations, strategic and legal compliance, and then place it. But a placement is a decision for today, not forever.
 -->
 
 ---
@@ -472,23 +482,23 @@ clicks: 4
 </At>
 
 <!--
-**Placement is not permanent.** And that placement will change, for four reasons.
+**Placement is not permanent.** Where a workload sits will change, and for four reasons.
 
 [click]
 
-A provider revokes model access: the model is gone, with no direct replacement, so you need a new one.
+A provider revokes model access. The model is gone, with no direct replacement, so you need a new one.
 
 [click]
 
-The regulations change: you tighten, and the workload moves inward.
+The regulations change. You tighten, and the workload moves inward.
 
 [click]
 
-A new version is released: you adapt the workload in place.
+A new version is released. You adapt the workload in place.
 
 [click]
 
-A new frontier model arrives: you can expand outward to use it, if the risk allows. Inward is more control, outward is more capability.
+A new frontier model arrives. You can expand outward to use it, if the risk allows. Inward is more control, outward is more capability. So you will move, which is why the exit has to exist from day one. And I should be honest about what that costs.
 -->
 
 ---
@@ -537,7 +547,7 @@ clicks: 2
 
 [click]
 
-What you keep is a real exit, negotiating strength, and control of your data and your roadmap. You may be thinking: switching is easy, we trust our provider, open models are not good enough. The model is easy to swap and the rest is not. Trust is not control. And you choose by risk, not by ideology.
+What you keep is a real exit, negotiating strength, and control of your data and your roadmap. You may be thinking: switching is easy, we trust our provider, open models are not good enough. The model is easy to swap and the rest is not. Trust is not control. And you choose by risk, not by ideology. A little friction now, a real exit later. So what do you do on Monday?
 -->
 
 ---
@@ -560,19 +570,19 @@ tone: dark
 </At>
 
 <!--
-**Three things to do on Monday.** They are the three lessons again.
+**Three things to do on Monday.** They are the three lessons again, now as actions.
 
 [click]
 
-One, map your dependencies: ask every AI provider the three questions, then map the six dependencies for your most important AI workload, starting with what your own teams already run.
+One, map your dependencies. Ask every AI provider the three questions, then map the six dependencies for your most important AI workload, starting with what your own teams already run.
 
 [click]
 
-Two, build exit paths: put a number on it. How many days to move this workload? Answer in a unit, not a plan, then rehearse it once a year.
+Two, build exit paths. Put a number on it: how many days to move this workload? Answer in a unit, not a plan, then rehearse it once a year.
 
 [click]
 
-Three, keep control: place each workload where its risk belongs, and run one open-weight model on an open platform you control, with keys you hold. A small pilot beats a strategy document.
+Three, keep control. Place each workload where its risk belongs, and run one open-weight model on an open platform you control, with keys you hold. A small pilot beats a strategy document. And if you do those three things, here is where you are a year from now.
 -->
 
 ---
@@ -597,7 +607,7 @@ tone: dark
 </At>
 
 <!--
-**A year from now.** Picture the result. You know where your keys are, and who else can turn them. You know how many days it takes to move an AI workload. You know that switching AI providers is a decision, not a rebuild. The alternative is to find out later which decisions were made for you.
+**A year from now.** Picture the result. You know where your keys are, and who else can turn them. You know how many days it takes to move an AI workload. You know that switching AI providers is a decision, not a rebuild. The alternative is to find out later which decisions were made for you. Which brings me back to the title.
 -->
 
 ---
@@ -612,7 +622,7 @@ tone: dark
   <img src="/images/qr-linkedin.png" class="w-full h-full" />
 </At>
 <At :x="139" :y="270" :w="300">
-  <Pill :w="120" :h="36" style="font-size: 16px;">Booth #117</Pill>
+  <Pill :w="120" :h="36" style="font-size: 16px;">Booth #115</Pill>
   <div class="text-[15px] leading-[22px] mt-[10px] whitespace-nowrap">Come talk to us about your keys.</div>
 </At>
 
@@ -620,7 +630,7 @@ tone: dark
 <At :x="458" :y="104" :w="354"><img src="/images/king-keys.png" /></At>
 
 <!--
-**The answer to the title.** Your AI. Your kingdom. Your keys. Not because anyone is the enemy, but because owning is not controlling. Thank you, and I would love your questions.
+**The answer to the title.** Your AI. Your kingdom. Your keys. Not because anyone is the enemy, but because owning is not controlling. If you want to talk about your own keys, come and find us at booth 115. Thank you, and I would love your questions.
 -->
 
 ---
@@ -804,13 +814,13 @@ tone: fog
 ---
 tone: fog
 source: Gartner Inc., The Shift Toward VMware Alternatives — Mitigating Risks and Costs, April 2026
-gartner: true
+trademarks: [GARTNER]
 ---
 
 # Three lessons from the Virtualization Shake-up
 
-<VmwareChart>
+<VmwareQuote>
 Gartner states, “Negative sentiment among CIOs and IT leaders regarding Broadcom ownership of VMware has continued to grow. In 2024, 33% of CIOs reported a negative sentiment. In 2025, that number grew to 64%, and it now sits at 76% in 2026”<sup>1</sup>
-</VmwareChart>
+</VmwareQuote>
 
 <ThreeLessons />

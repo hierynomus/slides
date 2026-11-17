@@ -2,7 +2,7 @@
   <footer class="slide-footer">
     <SuseLogo :size="17" class="logo" />
     <span class="page">{{ $nav.currentPage }}</span>
-    <div v-if="!$frontmatter.trademarks?.length" class="bar">
+    <div v-if="($frontmatter.trademarks?.length ?? 0) < 2" class="bar">
       <span style="flex: 130; background: var(--suse-mint)" />
       <span style="flex: 50; background: var(--suse-waterhole)" />
       <span style="flex: 27; background: var(--suse-persimmon)" />
