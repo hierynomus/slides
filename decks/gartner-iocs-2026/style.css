@@ -1,0 +1,100 @@
+/* The canvas is 720×405 (see canvasWidth in slides.md), so px values match the original deck's points 1:1 */
+:root {
+  --suse-pine: #0c322c;
+  --suse-jungle: #30ba78;
+  --suse-mint: #90ebcd;
+  --suse-waterhole: #2453ff;
+  --suse-persimmon: #fe7c3f;
+  --suse-fog: #efefef;
+  --suse-card: #16453b;
+  --suse-forest: #025937;
+  --suse-teal: #008657;
+  --suse-mist: #c0efde;
+  --suse-stat: #155e3c;
+}
+
+.slidev-layout {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-family: 'SUSE', sans-serif;
+  font-size: 14px;
+  line-height: 1.25;
+  color: var(--suse-pine);
+  background: #fff;
+  padding: 0;
+}
+.slidev-layout h1 {
+  position: absolute;
+  left: 31px;
+  top: 14px;
+  margin: 0;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.slidev-layout h1 + p {
+  position: absolute;
+  left: 31px;
+  top: 58px;
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--suse-jungle);
+}
+:where(.slidev-layout) p { margin: 0; }
+:where(.slidev-layout) ul { margin: 0; padding: 0; list-style: none; }
+:where(.slidev-layout) li { margin: 0; padding: 0; }
+
+.slidev-layout.tone-fog { background: var(--suse-fog); }
+.slidev-layout.tone-dark {
+  background: var(--suse-pine);
+  color: var(--suse-fog);
+}
+
+.source {
+  position: absolute;
+  right: 8px;
+  top: 387px;
+  font-size: 10px;
+  font-style: italic;
+  color: #9e9e9e;
+  z-index: 2;
+}
+
+/* Bulleted list with filled dots, as on the Ownership/Control cards */
+.dots li {
+  position: relative;
+  padding-left: 17px;
+  margin-top: 5px;
+}
+.dots li::before {
+  content: '●';
+  position: absolute;
+  left: 0;
+  font-size: 9px;
+  top: 3px;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 700;
+}
+.text-jungle { color: var(--suse-jungle); }
+.text-mint { color: var(--suse-mint); }
+.text-persimmon { color: var(--suse-persimmon); }
+.source.source-left {
+  right: auto;
+  left: 31px;
+  top: 347px;
+}
+.source.source-stack {
+  top: 375px;
+  line-height: 12px;
+  text-align: right;
+}
