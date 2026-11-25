@@ -1,0 +1,189 @@
+<script setup lang="ts">
+// Voyage bar: the talk is one voyage. Each slide that starts a chapter sets
+// `chapter: "IV · The charts"` in its frontmatter. The longship sails along
+// the bottom as the deck advances, and the waypoints mark chapter starts.
+// Set `voyage: false` in a slide's frontmatter to hide the bar there.
+// Lives in global-top (drawn above the slide) because global-bottom is drawn
+// underneath the slide, where the solid background hides it.
+import { computed, unref } from 'vue'
+import { injectLocal } from '@vueuse/core'
+import { useNav } from '@slidev/client'
+import { injectionSlidevContext } from '@slidev/client/constants.ts'
+import Longship from './components/Longship.vue'
+import KeelFrame from './components/KeelFrame.vue'
+
+// In PDF/PNG export each page gets its own nav context, so prefer the
+// injected one and fall back to the global nav in the live show.
+const ctx = injectLocal(injectionSlidevContext, null as any)
+const nav: any = ctx?.nav ?? useNav()
+const v = (x: any) => unref(x)
+
+// The crew's longship logo lives in public/ (respects the Pages base path)
+const logoUrl = import.meta.env.BASE_URL.replace(/\/$/, '') + '/cnd/logo.svg'
+
+const chapters = computed(() =>
+  v(nav.slides)
+    .filter((r: any) => r.meta?.slide?.frontmatter?.chapter)
+    .map((r: any) => ({ no: r.no, label: String(r.meta.slide.frontmatter.chapter) })),
+)
+
+const total = computed(() => v(nav.total))
+const currentSlideNo = computed(() => v(nav.currentSlideNo))
+
+const at = (no: number) => (total.value > 1 ? ((no - 1) / (total.value - 1)) * 100 : 0)
+
+const shipPos = computed(() => at(currentSlideNo.value))
+
+const current = computed(() => {
+  const passed = chapters.value.filter((c: any) => c.no <= currentSlideNo.value)
+  return passed.length ? passed[passed.length - 1].label : ''
+})
+
+const hidden = computed(() => v(nav.currentFrontmatter)?.voyage === false)
+const chapterOpener = computed(() =>
+  String(v(nav.currentFrontmatter)?.class ?? '').split(/\s+/).includes('voyage-open'),
+)
+// `opener: keel` swaps the corner longship for its bare frame (keel slide)
+const keelOpener = computed(() => v(nav.currentFrontmatter)?.opener === 'keel')
+</script>
+
+<template>
+  <KeelFrame v-if="chapterOpener && keelOpener" class="voyage-opener-ship" :width="132" />
+  <Longship v-else-if="chapterOpener" class="voyage-opener-ship" :width="132" />
+  <div v-if="!hidden" class="voyage">
+    <div class="voyage-chapter">{{ current }}</div>
+    <div class="voyage-track">
+      <svg class="voyage-sea" viewBox="0 0 400 10" preserveAspectRatio="none" aria-hidden="true">
+        <path class="wave a" d="M0 6 q10 -5 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0" />
+        <path class="wave b" d="M0 6 q10 -5 20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0 t20 0" />
+      </svg>
+      <div
+        v-for="c in chapters"
+        :key="c.no"
+        class="voyage-mark"
+        :class="{ passed: c.no <= currentSlideNo }"
+        :style="{ left: at(c.no) + '%' }"
+      >
+        <span>{{ c.label.split('·')[0].trim() }}</span>
+      </div>
+      <!-- The crew's longship logo, cropped to the boat; rocks around its waterline -->
+      <svg class="voyage-ship" :style="{ left: shipPos + '%' }" viewBox="70 95 530 480" aria-hidden="true">
+        <g class="rock">
+          <image :href="logoUrl" x="0" y="0" width="669" height="747" />
+        </g>
+      </svg>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.voyage {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 28px; /* lifted clear of the venue projector's cropped bottom edge */
+  height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 28px 4px 28px;
+  pointer-events: none;
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+.voyage-chapter {
+  flex: none;
+  width: 150px;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #E2A63D;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+.voyage-track {
+  position: relative;
+  flex: 1;
+  height: 22px;
+}
+
+/* Gentle water motion: two wave layers drift in opposite directions. One
+   period is 40 viewBox units, so sliding by exactly 40 loops seamlessly. */
+.wave.a { animation: wave-drift 6s linear infinite; }
+.wave.b {
+  stroke-opacity: 0.45;
+  transform: translateY(1.5px);
+  animation: wave-drift-rev 9s linear infinite;
+}
+@keyframes wave-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(-40px); }
+}
+@keyframes wave-drift-rev {
+  from { transform: translate(-40px, 1.5px); }
+  to { transform: translate(0, 1.5px); }
+}
+
+.voyage-sea {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  width: 100%;
+  height: 8px;
+  fill: none;
+  stroke: #4FA3A0;
+  stroke-opacity: 0.6;
+  stroke-width: 1;
+}
+
+.voyage-mark {
+  position: absolute;
+  bottom: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.voyage-mark::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  border: 1px solid #8FB0CF;
+  background: #0C121B;
+  margin-top: 1px;
+}
+
+.voyage-mark span {
+  font-size: 7px;
+  letter-spacing: 0.08em;
+  color: #98A5B6;
+  opacity: 0.7;
+}
+
+.voyage-mark.passed::after { border-color: #E2A63D; background: #E2A63D; }
+.voyage-mark.passed span { color: #E2A63D; }
+
+.voyage-ship {
+  position: absolute;
+  bottom: 1px;
+  width: 36px;
+  height: 32px;
+  transform: translateX(-50%);
+  transition: left 0.6s ease;
+}
+
+/* Slow rocking on the swell: pivots around the hull's waterline, with a small bob. */
+.voyage-ship .rock {
+  transform-box: view-box;
+  transform-origin: 330px 560px;
+  animation: ship-rock 5s ease-in-out infinite;
+}
+@keyframes ship-rock {
+  0%, 100% { transform: translateY(2px) rotate(-3.5deg); }
+  50% { transform: translateY(-3px) rotate(3.5deg); }
+}
+</style>
