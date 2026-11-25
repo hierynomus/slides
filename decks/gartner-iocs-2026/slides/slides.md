@@ -209,13 +209,15 @@ trademarks: [GARTNER, Hype Cycle]
 
 ---
 tone: fog
-clicks: 3
+clicks: 4
 source: SUSE, Hybrid Cloud Survey 2026 (611 IT leaders in the US, UK, France, Germany and Japan), September 2026
 ---
 
 # In AI, owning your data is not controlling it
 
-<At :x="25" :y="83" :w="247" :h="258" class="rounded-[8px] bg-[var(--suse-card)] text-[var(--suse-fog)] px-[16px]">
+<!-- Start: the two boxes sit big in the middle. Click 1: they glide to the top and the "Start at home" card fades in -->
+<At :x="25" :y="83" :w="247" :h="258" class="rounded-[8px] bg-[var(--suse-card)] text-[var(--suse-fog)] px-[16px] transition-opacity duration-700"
+  :class="{ 'opacity-0': $clicks < 1 }" :style="{ transitionDelay: $clicks > 0 ? '1.2s' : '0s' }">
   <div class="mt-[16px] text-[10px] font-bold uppercase tracking-[0.12em] text-mint">Start at home</div>
   <div class="font-mono text-[64px] font-medium leading-[64px] mt-[4px] text-jungle">91%</div>
   <p class="text-[14px] font-medium leading-[17px] mt-[6px]">of IT leaders say employees bypass security and compliance controls to deploy AI workloads faster.</p>
@@ -223,32 +225,45 @@ source: SUSE, Hybrid Cloud Survey 2026 (611 IT leaders in the US, UK, France, Ge
   <img src="/images/qr-suse-survey.svg" class="absolute right-[12px] bottom-[12px] w-[78px] h-[78px] rounded-[4px]" />
 </At>
 
-<At :x="297" :y="83" :w="175" :h="52" class="rounded-[8px] bg-[var(--suse-pine)] text-[#f7f8f8] px-[12px] pt-[8px]">
-  <div class="text-[16px] font-bold leading-[20px]">Your data</div>
-  <div class="text-[11px] leading-[16px]">prompts, documents, records</div>
-</At>
+<div class="absolute rounded-[8px] bg-[var(--suse-pine)] text-[#f7f8f8] whitespace-nowrap transition-all duration-[1600ms] ease-in-out"
+  :style="$clicks < 1
+    ? { left: '35px', top: '140px', width: '260px', height: '110px', padding: '26px 20px 0' }
+    : { left: '297px', top: '83px', width: '175px', height: '52px', padding: '8px 12px 0' }">
+  <div class="font-bold transition-all duration-[1600ms] ease-in-out" :style="{ fontSize: $clicks < 1 ? '30px' : '16px', lineHeight: $clicks < 1 ? '36px' : '20px' }">Your data</div>
+  <div class="transition-all duration-[1600ms] ease-in-out" :style="{ fontSize: $clicks < 1 ? '15px' : '11px', lineHeight: $clicks < 1 ? '24px' : '16px' }">prompts, documents, records</div>
+</div>
 
-<ArrowRight class="absolute left-[479.5px] top-[102px]" :w="36" :h="14" :line-end="30" :head-base="26" :head-tip="34" :head-half="6" :stroke="2.5" />
+<ArrowRight class="absolute transition-all duration-[1600ms] ease-in-out" :w="36" :h="14" :line-end="30" :head-base="26" :head-tip="34" :head-half="6" :stroke="2.5"
+  :style="{ transformOrigin: 'top left', ...($clicks < 1
+    ? { left: '317px', top: '178px', transform: 'scale(2.4)' }
+    : { left: '479.5px', top: '102px', transform: 'scale(1)' }) }" />
 
-<At :x="521" :y="83" :w="174" :h="52" class="rounded-[8px] bg-[var(--suse-forest)] text-[#f7f8f8] px-[12px] pt-[8px]">
-  <div class="text-[16px] font-bold leading-[20px]">An AI service</div>
-  <div class="text-[11px] leading-[16px]">run by someone else</div>
-</At>
+<div class="absolute rounded-[8px] bg-[var(--suse-forest)] text-[#f7f8f8] whitespace-nowrap transition-all duration-[1600ms] ease-in-out"
+  :style="$clicks < 1
+    ? { left: '425px', top: '140px', width: '260px', height: '110px', padding: '26px 20px 0' }
+    : { left: '521px', top: '83px', width: '174px', height: '52px', padding: '8px 12px 0' }">
+  <div class="font-bold transition-all duration-[1600ms] ease-in-out" :style="{ fontSize: $clicks < 1 ? '30px' : '16px', lineHeight: $clicks < 1 ? '36px' : '20px' }">An AI service</div>
+  <div class="transition-all duration-[1600ms] ease-in-out" :style="{ fontSize: $clicks < 1 ? '15px' : '11px', lineHeight: $clicks < 1 ? '24px' : '16px' }">run by someone else</div>
+</div>
 
 <At :x="297" :y="147" class="text-[11px] font-bold uppercase tracking-[0.1em] text-[var(--suse-forest)] transition-opacity duration-500"
-  :class="{ 'opacity-0': $clicks < 1 }">Three questions to ask any AI provider</At>
+  :class="{ 'opacity-0': $clicks < 2 }">Three questions to ask any AI provider</At>
 
-<!-- Clicks: the heading comes in with the first question, then one question per click -->
+<!-- Clicks 2-4: the heading comes in with the first question, then one question per click -->
 <At v-for="(q, i) in ['Who holds the keys?', 'Whose law can compel it?', 'Can you audit the AI?']" :key="q"
   :x="297" :y="167 + i * 62" :w="398" :h="50"
   class="flex items-center gap-[14px] bg-[#f8f9f9] border border-[#d6d9d8] rounded-[8px] px-[14px] text-[var(--suse-pine)] transition-opacity duration-500"
-  :class="{ 'opacity-0': $clicks <= i }">
+  :class="{ 'opacity-0': $clicks <= i + 1 }">
   <span class="badge w-[26px] h-[26px] shrink-0 bg-[var(--suse-jungle)] text-[var(--suse-pine)]">{{ i + 1 }}</span>
   <span class="text-[20px] font-medium leading-[24px]">{{ q }}</span>
 </At>
 
 <!--
-**In AI, owning your data is not controlling it.** Your data goes into an AI service, run by someone else, on their terms and under their jurisdiction. And I want to start at home. In a survey of 611 IT leaders that we ran in September, 91% said employees bypass security and compliance controls to deploy AI workloads faster, and 85% are worried, about data loss and about having no visibility into the models that are running. You cannot hold the keys to AI you cannot see. So what do you ask? Three questions, for any provider.
+**In AI, owning your data is not controlling it.** Your data goes into an AI service, run by someone else, on their terms and under their jurisdiction. That is the whole picture: your data, and a service that is not yours.
+
+[click]
+
+Before we ask anything of providers, I want to start at home. In a survey of 611 IT leaders that we ran in September, 91% said employees bypass security and compliance controls to deploy AI workloads faster, and 85% are worried, about data loss and about having no visibility into the models that are running. You cannot hold the keys to AI you cannot see. So what do you ask? Three questions, for any provider.
 
 [click]
 
@@ -341,23 +356,25 @@ clicks: 4
 </At>
 
 <!--
-**Lock-in is what ownership without control looks like.** One real case that touched four of those objectives, in four stages.
+**Lock-in is what ownership without control looks like.** Remember the framework we just saw? Here is one real case that touched four of its objectives, in four stages. Watch the pill at the bottom of each card, because each stage lands on a different SOV. This mapping is our reading of the framework, not the EU's.
 
 [click]
 
-One: over the years, workloads, tooling and skills get built around one platform. That is the starting point, and it is the reason what follows hurts.
+One: over the years, workloads, tooling and skills get built around one platform. Nobody forces this, and it feels like good engineering at the time. In the framework that is SOV-6, technology: lock-in to a proprietary stack. It is the quiet one, and it is the reason everything after it hurts.
 
 [click]
 
-Two: on 22 November 2023 the owner changes. Broadcom completes its acquisition of VMware.
+Two: on 22 November 2023 the owner changes. Broadcom completes its acquisition of VMware. That is SOV-1, strategic: who owns your provider. Note that this is the only stage that is about ownership, and the customer had no say in it.
 
 [click]
 
-Three: 19 days later, on 11 December, the terms change. Perpetual licences stay usable, but new perpetual sales and support renewals end. You keep what you bought, and someone else sets the terms around it. That is ownership without control in one sentence.
+Three: 19 days later, on 11 December, the terms change. Perpetual licences stay usable, but new perpetual sales and support renewals end. That is SOV-5, supply chain: the terms on which something you depend on is supplied. You keep what you bought, and someone else sets the terms around it. That is ownership without control in one sentence.
 
 [click]
 
-Four: the exit is the hard part. Pause on the rack in chains. For balance: the company describes this as completing a move to subscription, as much of the industry has done. The point is that the customer had no say. And that is where the market learned something.
+Four: the exit is the hard part. Pause on the rack in chains. This is SOV-4, operational: can you migrate without being locked in? Customers look at alternatives, and moving a platform takes time. For balance: the company describes this as completing a move to subscription, as much of the industry has done. The point is not the pricing. The point is that the customer had no say.
+
+Step back and look at the four pills. One change of ownership was the trigger, and three objectives about control did the damage. If you had scored this platform on the framework before 2023, the technology and operational objectives would already have told you where it would hurt. And that is where the market learned something.
 -->
 
 ---
