@@ -1,0 +1,9 @@
+title: Stop Running Mystery Meat in Production
+description: Base images from random registries are the mystery meat of production. Provenance, attestation and SBOMs, why scanning alone can't save you, and three things to try on Monday.
+events:
+  - name: Cloud Native London (meatloaf theme)
+    date: 2026-02-04
+  - name: WeAreDevelopers NA, San Jose (hamburger theme)
+    date: 2026-09-23
+  - name: KubeCon NA, Salt Lake City (hamburger theme)
+    date: 2026-11-12

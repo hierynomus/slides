@@ -1,3 +1,5 @@
+# Builds every deck in decks/ plus the index page and publishes the result to GitHub Pages.
+# Pages source must be "GitHub Actions" (repo Settings > Pages).
 name: Publish slides
 
 on:
@@ -19,12 +21,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
-      - run: bun run build -- --base /${{ github.event.repository.name }}/
+      - uses: jdx/mise-action@v3
+      - run: bun install --frozen-lockfile
+      - run: mise run build-all
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: site
 
   deploy:
     needs: build

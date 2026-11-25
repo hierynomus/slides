@@ -1,0 +1,50 @@
+[tools]
+bun = "latest"
+node = "lts"
+
+[tasks.install]
+description = "Install dependencies for all decks"
+run = "bun install"
+
+[tasks.dev]
+description = "Live preview of one deck: mise run dev <deck>"
+usage = 'arg "<deck>" help="Directory name under decks/"'
+depends = ["install"]
+run = 'bun run --cwd decks/$usage_deck dev'
+
+[tasks.build]
+description = "Build one deck into site/<deck>/ (plus the index): mise run build <deck>"
+usage = 'arg "<deck>" help="Directory name under decks/"'
+depends = ["install"]
+run = 'bun scripts/build-site.ts $usage_deck'
+
+[tasks.build-all]
+description = "Build every deck and the index page into site/"
+depends = ["install"]
+run = "bun scripts/build-site.ts"
+
+[tasks.preview]
+description = "Serve site/ at http://localhost:4173/slides/ (run build-all first)"
+run = "bun scripts/preview.ts"
+
+[tasks.export]
+description = "Export one deck to PDF: mise run export <deck>"
+usage = 'arg "<deck>" help="Directory name under decks/"'
+depends = ["install"]
+run = 'bun run --cwd decks/$usage_deck export --output $usage_deck.pdf'
+
+[tasks.new-deck]
+description = 'Scaffold a new deck: mise run new-deck <name> "Title"'
+usage = '''
+arg "<name>" help="Directory name under decks/"
+arg "[title]" help="Deck title"
+'''
+run = 'bun scripts/new-deck.ts $usage_name "$usage_title"'
+
+[tasks.lint]
+description = "Lint the deck markdown"
+run = "bunx markdownlint-cli2 'decks/**/*.md' '#node_modules'"
+
+[tasks.clean]
+description = "Remove build output"
+run = "rm -rf site decks/*/dist"

@@ -1,17 +1,10 @@
 {
-  "name": "slides-gartner-iocs-2026",
-  "type": "module",
+  "name": "gartner-iocs-2026",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "slidev --open",
-    "build": "slidev build",
-    "export": "slidev export"
-  },
-  "dependencies": {
-    "@slidev/cli": "^53.0.0",
-    "@slidev/theme-default": "^0.25.0"
-  },
-  "devDependencies": {
-    "playwright-chromium": "^1.64.1"
+    "dev": "slidev slides/slides.md",
+    "build": "slidev build slides/slides.md",
+    "export": "slidev export slides/slides.md"
   }
 }

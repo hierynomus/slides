@@ -1,0 +1,15 @@
+{
+  "name": "slides",
+  "private": true,
+  "type": "module",
+  "description": "Jeroen van Erp's Slidev decks, built and published as one site.",
+  "workspaces": ["decks/*"],
+  "dependencies": {
+    "@slidev/cli": "^53.0.0",
+    "@slidev/theme-default": "latest",
+    "vue": "^3.5.44"
+  },
+  "devDependencies": {
+    "playwright-chromium": "^1.64.1"
+  }
+}
