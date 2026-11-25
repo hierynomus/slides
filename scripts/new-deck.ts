@@ -19,6 +19,6 @@ writeFileSync(join(dir, "package.json"), JSON.stringify({
   scripts: { dev: "slidev slides/slides.md", build: "slidev build slides/slides.md", export: "slidev export slides/slides.md" },
 }, null, 2) + "\n");
 writeFileSync(join(dir, "deck.yaml"), `title: ${JSON.stringify(title)}\ndescription: \nhidden: true  # remove to list on the index page\nevents:\n  - name: TBD\n    date: ${today}\n`);
-writeFileSync(join(dir, "slides", "slides.md"), `---\ntheme: default\ntitle: ${JSON.stringify(title)}\nauthor: Jeroen van Erp\nmdc: true\n---\n\n# ${title}\n\n---\n\n# Second slide\n`);
+writeFileSync(join(dir, "slides", "slides.md"), `---\ntheme: default\ntitle: ${JSON.stringify(title)}\nauthor: Jeroen van Erp\nmdc: true\nrouterMode: hash\n---\n\n# ${title}\n\n---\n\n# Second slide\n`);
 writeFileSync(join(dir, "README.md"), `# ${title}\n\nSlides for ... See the repository root README for how to run and publish.\n`);
 console.log(`Created decks/${name}. Run: bun install && mise run dev ${name}`);

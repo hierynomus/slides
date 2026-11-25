@@ -1,5 +1,6 @@
 ---
 theme: none
+routerMode: hash
 title: Your AI, Your Kingdom, Someone Else's Keys?
 info: |
   Gartner IOCS 2026 — Jeroen van Erp, SUSE

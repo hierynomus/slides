@@ -1,5 +1,6 @@
 ---
 theme: default
+routerMode: hash
 title: Stop Running Mystery Meat in Production
 info: |
   Stop Running Mystery Meat in Production.
