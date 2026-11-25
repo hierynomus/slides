@@ -42,8 +42,8 @@ arg "[title]" help="Deck title"
 run = 'bun scripts/new-deck.ts $usage_name "$usage_title"'
 
 [tasks.lint]
-description = "Lint the deck markdown"
-run = "bunx markdownlint-cli2 'decks/**/*.md' '#node_modules'"
+description = "Lint the READMEs (slide files are skipped: Slidev's --- separators confuse markdownlint)"
+run = "bunx markdownlint-cli2 README.md 'decks/*/README.md'"
 
 [tasks.clean]
 description = "Remove build output"

@@ -12,7 +12,7 @@ Base images from random registries are the mystery meat of production: you don't
 
 The deck is built with [Slidev](https://sli.dev). You need [Bun](https://bun.sh) (or Node.js).
 
-```
+```text
 bun install
 bun run dev      # live preview at http://localhost:3030
 bun run build    # static site in dist/

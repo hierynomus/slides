@@ -27,7 +27,7 @@ mise tasks                      # list everything
 
 ## Layout
 
-```
+```text
 decks/<name>/
 ├── deck.yaml        # title, description, events (drives the index page), hidden: true to unlist
 ├── package.json     # per-deck scripts; deck-specific deps go here

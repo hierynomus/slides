@@ -6,3 +6,4 @@ MD025: false   # multiple H1 (one per slide)
 MD041: false   # first line heading (frontmatter)
 MD024: false   # duplicate headings (build slides)
 MD045: false   # images without alt text
+MD060: false   # table column style
