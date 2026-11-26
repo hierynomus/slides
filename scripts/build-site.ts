@@ -88,8 +88,7 @@ body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.5 "SUSE",syst
 a{color:var(--link)}
 .hero{background:radial-gradient(circle at 15% 0%,#0f5a48 0%,var(--pine) 70%);color:#fff;padding:32px 16px 56px;position:relative;overflow:hidden}
 .hero>div{max-width:1200px;margin:0 auto}
-.brand{display:flex;align-items:center;gap:10px;font-weight:500;font-size:1.4rem;letter-spacing:.1em}
-.brand img{height:1.5em}
+.logo{display:block;height:60px;width:auto;margin:-8px 0 0 -20px}
 .hero h1{margin:48px 0 8px;font-size:clamp(2.2rem,6vw,3.5rem);font-weight:500;line-height:1.1}
 .hero h1 em{font-style:normal;color:var(--jungle)}
 .hero p{margin:0;max-width:44ch;font-size:1.1rem;color:var(--mint);font-weight:300}
@@ -114,7 +113,7 @@ time{flex:none;background:var(--chip);color:var(--chip-fg);border-radius:999px;p
 footer{max-width:1200px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:.85rem}
 </style></head><body>
 <header class="hero"><div>
-  <div class="brand"><img src="geeko.png" alt=""><span>SUSE</span></div>
+  <img class="logo" src="suse_logo_neg.svg" alt="SUSE" width="180" height="60">
   <h1>Talks &amp; <em>slides</em></h1>
   <p>Decks by Jeroen van Erp. In a deck, press <kbd>o</kbd> for the overview and <kbd>p</kbd> for presenter mode.</p>
 </div></header>
@@ -137,5 +136,5 @@ for (const d of toBuild) await build(d);
 if (!process.env.SKIP_THUMBNAILS) await makeThumbnails(toBuild.map((d) => d.name));
 writeFileSync(join(siteDir, "index.html"), indexHtml(decks));
 writeFileSync(join(siteDir, ".nojekyll"), "");
-copyFileSync(join(root, "assets", "geeko.png"), join(siteDir, "geeko.png"));
+for (const f of ["geeko.png", "suse_logo_neg.svg"]) copyFileSync(join(root, "assets", f), join(siteDir, f));
 console.log(`\nSite ready in ${siteDir}`);
